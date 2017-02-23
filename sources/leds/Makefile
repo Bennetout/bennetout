@@ -1,7 +1,7 @@
 SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 
-CCINCLUDE += -I/local/home/monierc/raspberry/wiringPi-b0a60c3/wiringPi
+CCINCLUDE += -I/home/monier/Raspberry/wiringPi/wiringPi
 all: $(OBJ)
 
 .c.o:
