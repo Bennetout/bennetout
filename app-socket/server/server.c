@@ -32,8 +32,8 @@
 
 /* INADDR_ANY will bind the socket to all available interfaces
  * INADDR_LOOPBACK for binding with the loopback device */
-#define IP_ADDRESS		INADDR_ANY
-//#define IP_ADDRESS		"192.168.42.1"
+//#define IP_ADDRESS		INADDR_ANY
+#define IP_ADDRESS		"192.168.42.1"
 
 static int sock_descr = -1, client_sock_descr = -1;
 
@@ -79,8 +79,8 @@ int main(int argc, char *argv[])
 			sizeof(reuseaddr_enable)) < 0)
 		perror("[ERROR ]: setsockopt(SO_REUSEADDR) failed");
 
-	server.sin_addr.s_addr = htonl(IP_ADDRESS);
-	//server.sin_addr.s_addr = inet_addr(IP_ADDRESS);
+	//server.sin_addr.s_addr = htonl(IP_ADDRESS);
+	server.sin_addr.s_addr = inet_addr(IP_ADDRESS);
 	/* AF_INET is IP version 4 */
 	server.sin_family = AF_INET;
 	server.sin_port = htons(PORT_NUMBER);
@@ -109,18 +109,18 @@ int main(int argc, char *argv[])
 	printf("[  OK  ]: New connected socket created\n");
 
 	while(1) {
-	/**
-	 * Equivalent to write(client_sock_descr, message, strlen(message));
-	 * because last parameter (flags) is 0
-	 **/
-	ret = send(client_sock_descr, message, strlen(message), 0);
-	if (ret < 0) {
-		perror("[ERROR ]: Send failed");
-		exit_failure();
-	}
-	printf("[  OK  ]: Message sent with success\n");
-	printf("\tNumber of bytes sent = %d\n", ret);
-	sleep(1);
+		/**
+		 * Equivalent to write(client_sock_descr, message, strlen(message));
+		 * because last parameter (flags) is 0
+		 **/
+		ret = send(client_sock_descr, message, strlen(message), 0);
+		if (ret < 0) {
+			perror("[ERROR ]: Send failed");
+			exit_failure();
+		}
+		printf("[  OK  ]: Message sent with success\n");
+		printf("\tNumber of bytes sent = %d\n", ret);
+		sleep(5);
 	}
 	if (close(client_sock_descr) < 0)
 		perror("[ERROR ]: Could not close socket");
