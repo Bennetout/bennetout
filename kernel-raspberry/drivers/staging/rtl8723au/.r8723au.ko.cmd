@@ -1,0 +1,1 @@
+cmd_drivers/staging/rtl8723au/r8723au.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/staging/rtl8723au/r8723au.ko drivers/staging/rtl8723au/r8723au.o drivers/staging/rtl8723au/r8723au.mod.o

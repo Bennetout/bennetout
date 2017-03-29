@@ -1,0 +1,1 @@
+cmd_drivers/mtd/nand/bcm2835_smi_nand.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/mtd/nand/bcm2835_smi_nand.ko drivers/mtd/nand/bcm2835_smi_nand.o drivers/mtd/nand/bcm2835_smi_nand.mod.o

@@ -1,0 +1,1 @@
+cmd_drivers/media/usb/gspca/gspca_cpia1.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/usb/gspca/gspca_cpia1.ko drivers/media/usb/gspca/gspca_cpia1.o drivers/media/usb/gspca/gspca_cpia1.mod.o

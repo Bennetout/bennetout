@@ -1,0 +1,2 @@
+kernel/drivers/uio/uio.ko
+kernel/drivers/uio/uio_pdrv_genirq.ko

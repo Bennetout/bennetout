@@ -1,0 +1,1 @@
+cmd_drivers/media/usb/dvb-usb-v2/dvb_usb_v2.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/usb/dvb-usb-v2/dvb_usb_v2.ko drivers/media/usb/dvb-usb-v2/dvb_usb_v2.o drivers/media/usb/dvb-usb-v2/dvb_usb_v2.mod.o

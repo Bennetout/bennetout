@@ -1,0 +1,1 @@
+cmd_drivers/input/touchscreen/ads7846.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/input/touchscreen/ads7846.ko drivers/input/touchscreen/ads7846.o drivers/input/touchscreen/ads7846.mod.o

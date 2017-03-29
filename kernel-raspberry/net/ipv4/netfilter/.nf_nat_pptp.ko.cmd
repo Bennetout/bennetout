@@ -1,0 +1,1 @@
+cmd_net/ipv4/netfilter/nf_nat_pptp.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/ipv4/netfilter/nf_nat_pptp.ko net/ipv4/netfilter/nf_nat_pptp.o net/ipv4/netfilter/nf_nat_pptp.mod.o

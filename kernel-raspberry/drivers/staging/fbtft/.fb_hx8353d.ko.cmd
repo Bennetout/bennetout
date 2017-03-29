@@ -1,0 +1,1 @@
+cmd_drivers/staging/fbtft/fb_hx8353d.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/staging/fbtft/fb_hx8353d.ko drivers/staging/fbtft/fb_hx8353d.o drivers/staging/fbtft/fb_hx8353d.mod.o

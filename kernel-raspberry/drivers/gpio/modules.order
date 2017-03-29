@@ -1,0 +1,2 @@
+kernel/drivers/gpio/gpio-arizona.ko
+kernel/drivers/gpio/gpio-mcp23s08.ko

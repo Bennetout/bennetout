@@ -1,0 +1,1 @@
+cmd_drivers/media/tuners/m88rs6000t.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/tuners/m88rs6000t.ko drivers/media/tuners/m88rs6000t.o drivers/media/tuners/m88rs6000t.mod.o

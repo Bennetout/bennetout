@@ -1,0 +1,1 @@
+cmd_drivers/staging/media/mn88472/mn88472.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/staging/media/mn88472/mn88472.ko drivers/staging/media/mn88472/mn88472.o drivers/staging/media/mn88472/mn88472.mod.o

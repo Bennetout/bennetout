@@ -1,0 +1,1 @@
+cmd_drivers/media/usb/stkwebcam/stkwebcam.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/usb/stkwebcam/stkwebcam.ko drivers/media/usb/stkwebcam/stkwebcam.o drivers/media/usb/stkwebcam/stkwebcam.mod.o

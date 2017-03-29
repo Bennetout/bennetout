@@ -1,0 +1,15 @@
+kernel/drivers/media/radio/si470x/radio-usb-si470x.ko
+kernel/drivers/media/radio/si470x/radio-i2c-si470x.ko
+kernel/drivers/media/radio/radio-shark.ko
+kernel/drivers/media/radio/shark2.ko
+kernel/drivers/media/radio/dsbr100.ko
+kernel/drivers/media/radio/si4713/si4713.ko
+kernel/drivers/media/radio/radio-mr800.ko
+kernel/drivers/media/radio/radio-keene.ko
+kernel/drivers/media/radio/radio-ma901.ko
+kernel/drivers/media/radio/radio-tea5764.ko
+kernel/drivers/media/radio/saa7706h.ko
+kernel/drivers/media/radio/tef6862.ko
+kernel/drivers/media/radio/radio-wl1273.ko
+kernel/drivers/media/radio/wl128x/fm_drv.ko
+kernel/drivers/media/radio/tea575x.ko

@@ -1,0 +1,1 @@
+cmd_drivers/media/usb/dvb-usb-v2/dvb-usb-af9015.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/usb/dvb-usb-v2/dvb-usb-af9015.ko drivers/media/usb/dvb-usb-v2/dvb-usb-af9015.o drivers/media/usb/dvb-usb-v2/dvb-usb-af9015.mod.o

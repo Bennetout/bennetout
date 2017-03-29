@@ -1,0 +1,1 @@
+cmd_drivers/video/fbdev/core/syscopyarea.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/video/fbdev/core/syscopyarea.ko drivers/video/fbdev/core/syscopyarea.o drivers/video/fbdev/core/syscopyarea.mod.o

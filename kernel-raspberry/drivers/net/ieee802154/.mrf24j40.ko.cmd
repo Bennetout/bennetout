@@ -1,0 +1,1 @@
+cmd_drivers/net/ieee802154/mrf24j40.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/net/ieee802154/mrf24j40.ko drivers/net/ieee802154/mrf24j40.o drivers/net/ieee802154/mrf24j40.mod.o

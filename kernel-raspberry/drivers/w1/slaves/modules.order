@@ -1,0 +1,13 @@
+kernel/drivers/w1/slaves/w1_therm.ko
+kernel/drivers/w1/slaves/w1_smem.ko
+kernel/drivers/w1/slaves/w1_ds2408.ko
+kernel/drivers/w1/slaves/w1_ds2413.ko
+kernel/drivers/w1/slaves/w1_ds2406.ko
+kernel/drivers/w1/slaves/w1_ds2423.ko
+kernel/drivers/w1/slaves/w1_ds2431.ko
+kernel/drivers/w1/slaves/w1_ds2433.ko
+kernel/drivers/w1/slaves/w1_ds2760.ko
+kernel/drivers/w1/slaves/w1_ds2780.ko
+kernel/drivers/w1/slaves/w1_ds2781.ko
+kernel/drivers/w1/slaves/w1_bq27000.ko
+kernel/drivers/w1/slaves/w1_ds28e04.ko

@@ -1,0 +1,137 @@
+#include <linux/module.h>
+#include <linux/vermagic.h>
+#include <linux/compiler.h>
+
+MODULE_INFO(vermagic, VERMAGIC_STRING);
+
+__visible struct module __this_module
+__attribute__((section(".gnu.linkonce.this_module"))) = {
+	.name = KBUILD_MODNAME,
+	.init = init_module,
+#ifdef CONFIG_MODULE_UNLOAD
+	.exit = cleanup_module,
+#endif
+	.arch = MODULE_ARCH_INIT,
+};
+
+MODULE_INFO(intree, "Y");
+
+static const struct modversion_info ____versions[]
+__used
+__attribute__((section("__versions"))) = {
+	{ 0x5a7ba343, __VMLINUX_SYMBOL_STR(module_layout) },
+	{ 0x5affe4e7, __VMLINUX_SYMBOL_STR(skb_queue_head) },
+	{ 0x2d3385d3, __VMLINUX_SYMBOL_STR(system_wq) },
+	{ 0x24bd0aec, __VMLINUX_SYMBOL_STR(hid_add_device) },
+	{ 0x6c4c447, __VMLINUX_SYMBOL_STR(kmalloc_caches) },
+	{ 0xd5982fe1, __VMLINUX_SYMBOL_STR(sock_init_data) },
+	{ 0x2f8ca00a, __VMLINUX_SYMBOL_STR(hid_ignore) },
+	{ 0x26c06d6c, __VMLINUX_SYMBOL_STR(up_read) },
+	{ 0x3abb7bd5, __VMLINUX_SYMBOL_STR(kernel_sendmsg) },
+	{ 0xa552af6e, __VMLINUX_SYMBOL_STR(sockfd_lookup) },
+	{ 0x2e5810c6, __VMLINUX_SYMBOL_STR(__aeabi_unwind_cpp_pr1) },
+	{ 0x6c09c2a4, __VMLINUX_SYMBOL_STR(del_timer) },
+	{ 0xdff5c7d2, __VMLINUX_SYMBOL_STR(sock_no_setsockopt) },
+	{ 0x196a9dd3, __VMLINUX_SYMBOL_STR(hid_parse_report) },
+	{ 0x4324b812, __VMLINUX_SYMBOL_STR(sock_no_getsockopt) },
+	{ 0xa8cde9a7, __VMLINUX_SYMBOL_STR(remove_wait_queue) },
+	{ 0x4205ad24, __VMLINUX_SYMBOL_STR(cancel_work_sync) },
+	{ 0x5f2a7fd, __VMLINUX_SYMBOL_STR(sock_no_getname) },
+	{ 0xb1ad28e0, __VMLINUX_SYMBOL_STR(__gnu_mcount_nc) },
+	{ 0x9580deb, __VMLINUX_SYMBOL_STR(init_timer_key) },
+	{ 0x28cc25db, __VMLINUX_SYMBOL_STR(arm_copy_from_user) },
+	{ 0x62b72b0d, __VMLINUX_SYMBOL_STR(mutex_unlock) },
+	{ 0x2f0c3c2c, __VMLINUX_SYMBOL_STR(bt_sock_register) },
+	{ 0xbff4f13f, __VMLINUX_SYMBOL_STR(kthread_create_on_node) },
+	{ 0x8cd29355, __VMLINUX_SYMBOL_STR(sock_no_poll) },
+	{ 0x7d11c268, __VMLINUX_SYMBOL_STR(jiffies) },
+	{ 0x6e6b531, __VMLINUX_SYMBOL_STR(hid_input_report) },
+	{ 0xf4fa543b, __VMLINUX_SYMBOL_STR(arm_copy_to_user) },
+	{ 0x9101360b, __VMLINUX_SYMBOL_STR(down_read) },
+	{ 0x47022514, __VMLINUX_SYMBOL_STR(bt_err) },
+	{ 0xd7442057, __VMLINUX_SYMBOL_STR(bt_info) },
+	{ 0xf6a07197, __VMLINUX_SYMBOL_STR(__pskb_pull_tail) },
+	{ 0x7437d8eb, __VMLINUX_SYMBOL_STR(input_event) },
+	{ 0x63b87fc5, __VMLINUX_SYMBOL_STR(__init_waitqueue_head) },
+	{ 0x3e1967a9, __VMLINUX_SYMBOL_STR(sock_no_mmap) },
+	{ 0xffd5a395, __VMLINUX_SYMBOL_STR(default_wake_function) },
+	{ 0xf4dbe4f3, __VMLINUX_SYMBOL_STR(sock_no_recvmsg) },
+	{ 0xccd07863, __VMLINUX_SYMBOL_STR(bt_sock_unlink) },
+	{ 0xfa2a45e, __VMLINUX_SYMBOL_STR(__memzero) },
+	{ 0x487ca03d, __VMLINUX_SYMBOL_STR(skb_queue_purge) },
+	{ 0x4b4d3c3, __VMLINUX_SYMBOL_STR(sock_no_socketpair) },
+	{ 0x4e86e5ee, __VMLINUX_SYMBOL_STR(l2cap_conn_put) },
+	{ 0xcb2d991f, __VMLINUX_SYMBOL_STR(sk_alloc) },
+	{ 0x48a0f939, __VMLINUX_SYMBOL_STR(mutex_lock_interruptible) },
+	{ 0xdc798d37, __VMLINUX_SYMBOL_STR(__mutex_init) },
+	{ 0x5cdc645a, __VMLINUX_SYMBOL_STR(l2cap_is_socket) },
+	{ 0xd5cfaa2c, __VMLINUX_SYMBOL_STR(sock_no_bind) },
+	{ 0x3c3fce39, __VMLINUX_SYMBOL_STR(__local_bh_enable_ip) },
+	{ 0x5152e605, __VMLINUX_SYMBOL_STR(memcmp) },
+	{ 0xa1c76e0a, __VMLINUX_SYMBOL_STR(_cond_resched) },
+	{ 0x328a05f1, __VMLINUX_SYMBOL_STR(strncpy) },
+	{ 0x9494ac88, __VMLINUX_SYMBOL_STR(sock_no_listen) },
+	{ 0x73e20c1c, __VMLINUX_SYMBOL_STR(strlcpy) },
+	{ 0x16305289, __VMLINUX_SYMBOL_STR(warn_slowpath_null) },
+	{ 0xe16b893b, __VMLINUX_SYMBOL_STR(mutex_lock) },
+	{ 0x634904c6, __VMLINUX_SYMBOL_STR(sock_no_accept) },
+	{ 0xff88d5bc, __VMLINUX_SYMBOL_STR(sk_free) },
+	{ 0x16e5c2a, __VMLINUX_SYMBOL_STR(mod_timer) },
+	{ 0x8fea24bd, __VMLINUX_SYMBOL_STR(bt_sock_unregister) },
+	{ 0x253a7089, __VMLINUX_SYMBOL_STR(skb_pull) },
+	{ 0x6f3db115, __VMLINUX_SYMBOL_STR(up_write) },
+	{ 0x433fb974, __VMLINUX_SYMBOL_STR(init_net) },
+	{ 0xbc5c84b5, __VMLINUX_SYMBOL_STR(down_write) },
+	{ 0x33989b49, __VMLINUX_SYMBOL_STR(fput) },
+	{ 0xf93e65f5, __VMLINUX_SYMBOL_STR(sock_no_shutdown) },
+	{ 0x4d7f1b45, __VMLINUX_SYMBOL_STR(bt_sock_link) },
+	{ 0x5b06a048, __VMLINUX_SYMBOL_STR(skb_queue_tail) },
+	{ 0xc6cbbc89, __VMLINUX_SYMBOL_STR(capable) },
+	{ 0x624a7ce0, __VMLINUX_SYMBOL_STR(proto_register) },
+	{ 0x2799a19f, __VMLINUX_SYMBOL_STR(__alloc_skb) },
+	{ 0xbb4f295d, __VMLINUX_SYMBOL_STR(put_device) },
+	{ 0x55bcad26, __VMLINUX_SYMBOL_STR(input_register_device) },
+	{ 0xd62c833f, __VMLINUX_SYMBOL_STR(schedule_timeout) },
+	{ 0x1000e51, __VMLINUX_SYMBOL_STR(schedule) },
+	{ 0x4269ffd8, __VMLINUX_SYMBOL_STR(kfree_skb) },
+	{ 0xe89a7fe2, __VMLINUX_SYMBOL_STR(proto_unregister) },
+	{ 0xf819f889, __VMLINUX_SYMBOL_STR(l2cap_register_user) },
+	{ 0x784a8992, __VMLINUX_SYMBOL_STR(__module_put_and_exit) },
+	{ 0xbc7b90de, __VMLINUX_SYMBOL_STR(wake_up_process) },
+	{ 0xda42a36c, __VMLINUX_SYMBOL_STR(hid_destroy_device) },
+	{ 0x9777bbd5, __VMLINUX_SYMBOL_STR(kmem_cache_alloc_trace) },
+	{ 0xfd9088c5, __VMLINUX_SYMBOL_STR(hid_allocate_device) },
+	{ 0x9d853cd2, __VMLINUX_SYMBOL_STR(l2cap_conn_get) },
+	{ 0xe512b542, __VMLINUX_SYMBOL_STR(get_device) },
+	{ 0x7681e69a, __VMLINUX_SYMBOL_STR(__module_get) },
+	{ 0xb9e52429, __VMLINUX_SYMBOL_STR(__wake_up) },
+	{ 0x158f2f00, __VMLINUX_SYMBOL_STR(prepare_to_wait_event) },
+	{ 0x9c2193ec, __VMLINUX_SYMBOL_STR(sock_no_connect) },
+	{ 0x31b9195c, __VMLINUX_SYMBOL_STR(__local_bh_disable_ip) },
+	{ 0xfe634f58, __VMLINUX_SYMBOL_STR(add_wait_queue) },
+	{ 0x37a0cba, __VMLINUX_SYMBOL_STR(kfree) },
+	{ 0x9d669763, __VMLINUX_SYMBOL_STR(memcpy) },
+	{ 0x34125107, __VMLINUX_SYMBOL_STR(input_unregister_device) },
+	{ 0xd5cb6056, __VMLINUX_SYMBOL_STR(sock_no_sendmsg) },
+	{ 0x96684263, __VMLINUX_SYMBOL_STR(set_user_nice) },
+	{ 0x8893fa5d, __VMLINUX_SYMBOL_STR(finish_wait) },
+	{ 0x73f7bd5b, __VMLINUX_SYMBOL_STR(bt_procfs_init) },
+	{ 0x46ce479b, __VMLINUX_SYMBOL_STR(skb_dequeue) },
+	{ 0xe2e8065e, __VMLINUX_SYMBOL_STR(memdup_user) },
+	{ 0x676bbc0f, __VMLINUX_SYMBOL_STR(_set_bit) },
+	{ 0xb2d48a2e, __VMLINUX_SYMBOL_STR(queue_work_on) },
+	{ 0xb81960ca, __VMLINUX_SYMBOL_STR(snprintf) },
+	{ 0x4f37afda, __VMLINUX_SYMBOL_STR(skb_put) },
+	{ 0xc45dd58, __VMLINUX_SYMBOL_STR(bt_procfs_cleanup) },
+	{ 0x4dec6038, __VMLINUX_SYMBOL_STR(memscan) },
+	{ 0x7db6e035, __VMLINUX_SYMBOL_STR(l2cap_unregister_user) },
+	{ 0xb49f004, __VMLINUX_SYMBOL_STR(input_allocate_device) },
+};
+
+static const char __module_depends[]
+__used
+__attribute__((section(".modinfo"))) =
+"depends=bluetooth";
+
+
+MODULE_INFO(srcversion, "3D6CCBE6C524B37AE082026");

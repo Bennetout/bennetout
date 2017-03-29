@@ -1,0 +1,1 @@
+cmd_sound/soc/bcm/snd-soc-rpi-cirrus.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o sound/soc/bcm/snd-soc-rpi-cirrus.ko sound/soc/bcm/snd-soc-rpi-cirrus.o sound/soc/bcm/snd-soc-rpi-cirrus.mod.o ;  true

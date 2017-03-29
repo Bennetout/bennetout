@@ -1,0 +1,1 @@
+cmd_sound/soc/bcm/snd-soc-justboom-dac.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o sound/soc/bcm/snd-soc-justboom-dac.ko sound/soc/bcm/snd-soc-justboom-dac.o sound/soc/bcm/snd-soc-justboom-dac.mod.o

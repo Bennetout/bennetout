@@ -1,0 +1,1 @@
+cmd_sound/soc/bcm/snd-soc-adau1977-adc.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o sound/soc/bcm/snd-soc-adau1977-adc.ko sound/soc/bcm/snd-soc-adau1977-adc.o sound/soc/bcm/snd-soc-adau1977-adc.mod.o

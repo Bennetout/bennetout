@@ -1,0 +1,1 @@
+cmd_drivers/media/radio/wl128x/fm_drv.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/radio/wl128x/fm_drv.ko drivers/media/radio/wl128x/fm_drv.o drivers/media/radio/wl128x/fm_drv.mod.o

@@ -1,0 +1,1 @@
+cmd_drivers/input/misc/yealink.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/input/misc/yealink.ko drivers/input/misc/yealink.o drivers/input/misc/yealink.mod.o

@@ -1,0 +1,1 @@
+cmd_drivers/media/dvb-frontends/helene.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/dvb-frontends/helene.ko drivers/media/dvb-frontends/helene.o drivers/media/dvb-frontends/helene.mod.o ;  true

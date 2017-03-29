@@ -1,0 +1,1 @@
+cmd_drivers/media/rc/keymaps/rc-cec.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/rc/keymaps/rc-cec.ko drivers/media/rc/keymaps/rc-cec.o drivers/media/rc/keymaps/rc-cec.mod.o ;  true

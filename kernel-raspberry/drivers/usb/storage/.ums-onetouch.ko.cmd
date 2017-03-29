@@ -1,0 +1,1 @@
+cmd_drivers/usb/storage/ums-onetouch.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/usb/storage/ums-onetouch.ko drivers/usb/storage/ums-onetouch.o drivers/usb/storage/ums-onetouch.mod.o

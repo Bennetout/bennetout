@@ -1,0 +1,1 @@
+cmd_drivers/usb/misc/ftdi-elan.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/usb/misc/ftdi-elan.ko drivers/usb/misc/ftdi-elan.o drivers/usb/misc/ftdi-elan.mod.o

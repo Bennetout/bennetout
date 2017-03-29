@@ -1,0 +1,2 @@
+kernel/drivers/iio/dac/mcp4725.ko
+kernel/drivers/iio/dac/mcp4922.ko

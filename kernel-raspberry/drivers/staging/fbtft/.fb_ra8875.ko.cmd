@@ -1,0 +1,1 @@
+cmd_drivers/staging/fbtft/fb_ra8875.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/staging/fbtft/fb_ra8875.ko drivers/staging/fbtft/fb_ra8875.o drivers/staging/fbtft/fb_ra8875.mod.o

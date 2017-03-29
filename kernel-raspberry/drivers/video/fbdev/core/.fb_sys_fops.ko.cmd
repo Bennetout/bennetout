@@ -1,0 +1,1 @@
+cmd_drivers/video/fbdev/core/fb_sys_fops.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/video/fbdev/core/fb_sys_fops.ko drivers/video/fbdev/core/fb_sys_fops.o drivers/video/fbdev/core/fb_sys_fops.mod.o

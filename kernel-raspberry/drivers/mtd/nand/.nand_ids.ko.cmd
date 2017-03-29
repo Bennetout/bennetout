@@ -1,0 +1,1 @@
+cmd_drivers/mtd/nand/nand_ids.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/mtd/nand/nand_ids.ko drivers/mtd/nand/nand_ids.o drivers/mtd/nand/nand_ids.mod.o

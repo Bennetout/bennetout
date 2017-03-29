@@ -1,0 +1,1 @@
+cmd_drivers/media/rc/keymaps/rc-terratec-cinergy-c-pci.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/rc/keymaps/rc-terratec-cinergy-c-pci.ko drivers/media/rc/keymaps/rc-terratec-cinergy-c-pci.o drivers/media/rc/keymaps/rc-terratec-cinergy-c-pci.mod.o

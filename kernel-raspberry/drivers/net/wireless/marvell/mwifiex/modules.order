@@ -1,0 +1,2 @@
+kernel/drivers/net/wireless/marvell/mwifiex/mwifiex.ko
+kernel/drivers/net/wireless/marvell/mwifiex/mwifiex_sdio.ko

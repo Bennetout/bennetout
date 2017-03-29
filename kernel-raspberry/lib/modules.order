@@ -1,0 +1,9 @@
+kernel/lib/lz4/lz4_compress.ko
+kernel/lib/crc-ccitt.ko
+kernel/lib/crc7.ko
+kernel/lib/zlib_deflate/zlib_deflate.ko
+kernel/lib/raid6/raid6_pq.ko
+kernel/lib/ts_kmp.ko
+kernel/lib/ts_bm.ko
+kernel/lib/ts_fsm.ko
+kernel/lib/lru_cache.ko

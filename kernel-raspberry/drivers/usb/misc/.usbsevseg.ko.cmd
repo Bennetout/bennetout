@@ -1,0 +1,1 @@
+cmd_drivers/usb/misc/usbsevseg.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/usb/misc/usbsevseg.ko drivers/usb/misc/usbsevseg.o drivers/usb/misc/usbsevseg.mod.o

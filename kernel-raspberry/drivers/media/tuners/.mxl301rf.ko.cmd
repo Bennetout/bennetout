@@ -1,0 +1,1 @@
+cmd_drivers/media/tuners/mxl301rf.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/tuners/mxl301rf.ko drivers/media/tuners/mxl301rf.o drivers/media/tuners/mxl301rf.mod.o

@@ -1,0 +1,1 @@
+cmd_drivers/media/usb/dvb-usb-v2/dvb-usb-rtl28xxu.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/usb/dvb-usb-v2/dvb-usb-rtl28xxu.ko drivers/media/usb/dvb-usb-v2/dvb-usb-rtl28xxu.o drivers/media/usb/dvb-usb-v2/dvb-usb-rtl28xxu.mod.o

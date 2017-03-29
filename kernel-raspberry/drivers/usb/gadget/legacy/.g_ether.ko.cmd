@@ -1,0 +1,1 @@
+cmd_drivers/usb/gadget/legacy/g_ether.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/usb/gadget/legacy/g_ether.ko drivers/usb/gadget/legacy/g_ether.o drivers/usb/gadget/legacy/g_ether.mod.o

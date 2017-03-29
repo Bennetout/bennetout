@@ -1,0 +1,1 @@
+cmd_drivers/usb/serial/wishbone-serial.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/usb/serial/wishbone-serial.ko drivers/usb/serial/wishbone-serial.o drivers/usb/serial/wishbone-serial.mod.o

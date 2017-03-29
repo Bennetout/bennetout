@@ -1,0 +1,1 @@
+cmd_drivers/staging/fbtft/fb_agm1264k-fl.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/staging/fbtft/fb_agm1264k-fl.ko drivers/staging/fbtft/fb_agm1264k-fl.o drivers/staging/fbtft/fb_agm1264k-fl.mod.o

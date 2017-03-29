@@ -1,0 +1,1 @@
+cmd_drivers/w1/slaves/w1_bq27000.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/w1/slaves/w1_bq27000.ko drivers/w1/slaves/w1_bq27000.o drivers/w1/slaves/w1_bq27000.mod.o

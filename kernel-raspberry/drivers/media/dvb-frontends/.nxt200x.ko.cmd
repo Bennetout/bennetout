@@ -1,0 +1,1 @@
+cmd_drivers/media/dvb-frontends/nxt200x.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/dvb-frontends/nxt200x.ko drivers/media/dvb-frontends/nxt200x.o drivers/media/dvb-frontends/nxt200x.mod.o

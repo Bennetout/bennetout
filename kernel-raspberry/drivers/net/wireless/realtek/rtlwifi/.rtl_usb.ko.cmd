@@ -1,0 +1,1 @@
+cmd_drivers/net/wireless/realtek/rtlwifi/rtl_usb.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/net/wireless/realtek/rtlwifi/rtl_usb.ko drivers/net/wireless/realtek/rtlwifi/rtl_usb.o drivers/net/wireless/realtek/rtlwifi/rtl_usb.mod.o ;  true

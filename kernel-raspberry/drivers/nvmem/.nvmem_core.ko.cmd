@@ -1,0 +1,1 @@
+cmd_drivers/nvmem/nvmem_core.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/nvmem/nvmem_core.ko drivers/nvmem/nvmem_core.o drivers/nvmem/nvmem_core.mod.o ;  true

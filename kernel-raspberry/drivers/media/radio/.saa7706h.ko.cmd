@@ -1,0 +1,1 @@
+cmd_drivers/media/radio/saa7706h.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/radio/saa7706h.ko drivers/media/radio/saa7706h.o drivers/media/radio/saa7706h.mod.o

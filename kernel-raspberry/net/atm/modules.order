@@ -1,0 +1,2 @@
+kernel/net/atm/atm.ko
+kernel/net/atm/pppoatm.ko

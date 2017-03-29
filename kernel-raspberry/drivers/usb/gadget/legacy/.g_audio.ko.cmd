@@ -1,0 +1,1 @@
+cmd_drivers/usb/gadget/legacy/g_audio.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/usb/gadget/legacy/g_audio.ko drivers/usb/gadget/legacy/g_audio.o drivers/usb/gadget/legacy/g_audio.mod.o

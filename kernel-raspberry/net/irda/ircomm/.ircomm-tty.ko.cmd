@@ -1,0 +1,1 @@
+cmd_net/irda/ircomm/ircomm-tty.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/irda/ircomm/ircomm-tty.ko net/irda/ircomm/ircomm-tty.o net/irda/ircomm/ircomm-tty.mod.o

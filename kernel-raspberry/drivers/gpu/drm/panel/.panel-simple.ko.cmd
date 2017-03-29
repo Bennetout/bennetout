@@ -1,0 +1,1 @@
+cmd_drivers/gpu/drm/panel/panel-simple.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/gpu/drm/panel/panel-simple.ko drivers/gpu/drm/panel/panel-simple.o drivers/gpu/drm/panel/panel-simple.mod.o

@@ -1,0 +1,1 @@
+cmd_drivers/md/dm-cache-cleaner.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/md/dm-cache-cleaner.ko drivers/md/dm-cache-cleaner.o drivers/md/dm-cache-cleaner.mod.o

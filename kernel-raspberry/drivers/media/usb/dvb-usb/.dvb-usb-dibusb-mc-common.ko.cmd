@@ -1,0 +1,1 @@
+cmd_drivers/media/usb/dvb-usb/dvb-usb-dibusb-mc-common.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/usb/dvb-usb/dvb-usb-dibusb-mc-common.ko drivers/media/usb/dvb-usb/dvb-usb-dibusb-mc-common.o drivers/media/usb/dvb-usb/dvb-usb-dibusb-mc-common.mod.o ;  true

@@ -1,0 +1,1 @@
+cmd_net/netfilter/nf_nat_proto_sctp.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/netfilter/nf_nat_proto_sctp.ko net/netfilter/nf_nat_proto_sctp.o net/netfilter/nf_nat_proto_sctp.mod.o

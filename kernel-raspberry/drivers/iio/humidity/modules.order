@@ -1,0 +1,2 @@
+kernel/drivers/iio/humidity/dht11.ko
+kernel/drivers/iio/humidity/htu21.ko

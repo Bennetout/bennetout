@@ -1,0 +1,4 @@
+kernel/drivers/net/wireless/broadcom/b43/b43.ko
+kernel/drivers/net/wireless/broadcom/b43legacy/b43legacy.ko
+kernel/drivers/net/wireless/broadcom/brcm80211/brcmutil/brcmutil.ko
+kernel/drivers/net/wireless/broadcom/brcm80211/brcmfmac/brcmfmac.ko

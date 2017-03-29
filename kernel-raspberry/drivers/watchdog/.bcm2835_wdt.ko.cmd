@@ -1,0 +1,1 @@
+cmd_drivers/watchdog/bcm2835_wdt.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/watchdog/bcm2835_wdt.ko drivers/watchdog/bcm2835_wdt.o drivers/watchdog/bcm2835_wdt.mod.o

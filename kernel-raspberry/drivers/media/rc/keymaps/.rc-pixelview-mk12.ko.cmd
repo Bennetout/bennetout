@@ -1,0 +1,1 @@
+cmd_drivers/media/rc/keymaps/rc-pixelview-mk12.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/rc/keymaps/rc-pixelview-mk12.ko drivers/media/rc/keymaps/rc-pixelview-mk12.o drivers/media/rc/keymaps/rc-pixelview-mk12.mod.o

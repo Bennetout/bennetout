@@ -1,0 +1,5 @@
+kernel/drivers/usb/common/usb-common.ko
+kernel/drivers/usb/core/usbcore.ko
+kernel/drivers/usb/host/dwc_common_port/dwc_common_port_lib.ko
+kernel/drivers/usb/host/dwc_otg/dwc_otg.ko
+kernel/drivers/usb/storage/usb-storage.ko

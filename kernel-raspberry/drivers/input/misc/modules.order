@@ -1,0 +1,14 @@
+kernel/drivers/input/misc/ad714x.ko
+kernel/drivers/input/misc/ad714x-i2c.ko
+kernel/drivers/input/misc/ad714x-spi.ko
+kernel/drivers/input/misc/adxl34x.ko
+kernel/drivers/input/misc/adxl34x-i2c.ko
+kernel/drivers/input/misc/adxl34x-spi.ko
+kernel/drivers/input/misc/ati_remote2.ko
+kernel/drivers/input/misc/cm109.ko
+kernel/drivers/input/misc/cma3000_d0x.ko
+kernel/drivers/input/misc/keyspan_remote.ko
+kernel/drivers/input/misc/powermate.ko
+kernel/drivers/input/misc/rotary_encoder.ko
+kernel/drivers/input/misc/uinput.ko
+kernel/drivers/input/misc/yealink.ko

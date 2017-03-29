@@ -1,0 +1,1 @@
+cmd_drivers/media/dvb-frontends/lg2160.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/dvb-frontends/lg2160.ko drivers/media/dvb-frontends/lg2160.o drivers/media/dvb-frontends/lg2160.mod.o

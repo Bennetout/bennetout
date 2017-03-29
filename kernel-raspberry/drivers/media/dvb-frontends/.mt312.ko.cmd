@@ -1,0 +1,1 @@
+cmd_drivers/media/dvb-frontends/mt312.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/dvb-frontends/mt312.ko drivers/media/dvb-frontends/mt312.o drivers/media/dvb-frontends/mt312.mod.o

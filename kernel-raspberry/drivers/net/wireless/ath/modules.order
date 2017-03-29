@@ -1,0 +1,9 @@
+kernel/drivers/net/wireless/ath/ath9k/ath9k.ko
+kernel/drivers/net/wireless/ath/ath9k/ath9k_hw.ko
+kernel/drivers/net/wireless/ath/ath9k/ath9k_common.ko
+kernel/drivers/net/wireless/ath/ath9k/ath9k_htc.ko
+kernel/drivers/net/wireless/ath/carl9170/carl9170.ko
+kernel/drivers/net/wireless/ath/ath6kl/ath6kl_core.ko
+kernel/drivers/net/wireless/ath/ath6kl/ath6kl_usb.ko
+kernel/drivers/net/wireless/ath/ar5523/ar5523.ko
+kernel/drivers/net/wireless/ath/ath.ko

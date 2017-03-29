@@ -1,0 +1,1 @@
+cmd_drivers/extcon/extcon-arizona.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/extcon/extcon-arizona.ko drivers/extcon/extcon-arizona.o drivers/extcon/extcon-arizona.mod.o

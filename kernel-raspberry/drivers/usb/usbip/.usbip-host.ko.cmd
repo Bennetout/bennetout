@@ -1,0 +1,1 @@
+cmd_drivers/usb/usbip/usbip-host.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/usb/usbip/usbip-host.ko drivers/usb/usbip/usbip-host.o drivers/usb/usbip/usbip-host.mod.o

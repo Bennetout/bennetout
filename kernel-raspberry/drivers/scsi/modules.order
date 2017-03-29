@@ -1,0 +1,8 @@
+kernel/drivers/scsi/libiscsi.ko
+kernel/drivers/scsi/libiscsi_tcp.ko
+kernel/drivers/scsi/iscsi_tcp.ko
+kernel/drivers/scsi/iscsi_boot_sysfs.ko
+kernel/drivers/scsi/st.ko
+kernel/drivers/scsi/osst.ko
+kernel/drivers/scsi/sr_mod.ko
+kernel/drivers/scsi/sg.ko

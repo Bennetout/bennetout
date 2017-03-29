@@ -1,0 +1,6 @@
+kernel/drivers/staging/media/lirc/lirc_imon.ko
+kernel/drivers/staging/media/lirc/lirc_rpi.ko
+kernel/drivers/staging/media/lirc/lirc_sasem.ko
+kernel/drivers/staging/media/lirc/lirc_serial.ko
+kernel/drivers/staging/media/mn88472/mn88472.ko
+kernel/drivers/staging/media/mn88473/mn88473.ko

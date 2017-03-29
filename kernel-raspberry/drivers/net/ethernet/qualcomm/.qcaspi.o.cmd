@@ -1,0 +1,1 @@
+cmd_drivers/net/ethernet/qualcomm/qcaspi.o := arm-linux-gnueabihf-ld -EL    -r -o drivers/net/ethernet/qualcomm/qcaspi.o drivers/net/ethernet/qualcomm/qca_spi.o drivers/net/ethernet/qualcomm/qca_framing.o drivers/net/ethernet/qualcomm/qca_7k.o drivers/net/ethernet/qualcomm/qca_debug.o 

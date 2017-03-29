@@ -1,0 +1,11 @@
+kernel/drivers/mtd/chips/chipreg.ko
+kernel/drivers/mtd/devices/m25p80.ko
+kernel/drivers/mtd/nand/nand.ko
+kernel/drivers/mtd/nand/nand_ecc.ko
+kernel/drivers/mtd/nand/nand_ids.ko
+kernel/drivers/mtd/mtd.ko
+kernel/drivers/mtd/ofpart.ko
+kernel/drivers/mtd/mtd_blkdevs.ko
+kernel/drivers/mtd/mtdblock.ko
+kernel/drivers/mtd/spi-nor/spi-nor.ko
+kernel/drivers/mtd/ubi/ubi.ko

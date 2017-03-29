@@ -1,0 +1,1 @@
+cmd_drivers/media/rc/ir-xmp-decoder.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/rc/ir-xmp-decoder.ko drivers/media/rc/ir-xmp-decoder.o drivers/media/rc/ir-xmp-decoder.mod.o

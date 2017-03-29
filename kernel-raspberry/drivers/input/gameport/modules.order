@@ -1,0 +1,3 @@
+kernel/drivers/input/gameport/gameport.ko
+kernel/drivers/input/gameport/lightning.ko
+kernel/drivers/input/gameport/ns558.ko

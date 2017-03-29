@@ -1,0 +1,3 @@
+kernel/drivers/regulator/fixed.ko
+kernel/drivers/regulator/arizona-micsupp.ko
+kernel/drivers/regulator/arizona-ldo1.ko

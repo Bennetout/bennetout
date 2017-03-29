@@ -1,0 +1,1 @@
+cmd_drivers/gpu/drm/drm_mipi_dsi.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/gpu/drm/drm_mipi_dsi.ko drivers/gpu/drm/drm_mipi_dsi.o drivers/gpu/drm/drm_mipi_dsi.mod.o

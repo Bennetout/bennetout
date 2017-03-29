@@ -1,0 +1,14 @@
+kernel/drivers/media/i2c/msp3400.ko
+kernel/drivers/media/i2c/cx25840/cx25840.ko
+kernel/drivers/media/i2c/saa7115.ko
+kernel/drivers/media/i2c/tvp5150.ko
+kernel/drivers/media/i2c/tw2804.ko
+kernel/drivers/media/i2c/tw9903.ko
+kernel/drivers/media/i2c/tw9906.ko
+kernel/drivers/media/i2c/cs53l32a.ko
+kernel/drivers/media/i2c/uda1342.ko
+kernel/drivers/media/i2c/wm8775.ko
+kernel/drivers/media/i2c/sony-btf-mpx.ko
+kernel/drivers/media/i2c/ov7640.ko
+kernel/drivers/media/i2c/mt9v011.ko
+kernel/drivers/media/i2c/ir-kbd-i2c.ko

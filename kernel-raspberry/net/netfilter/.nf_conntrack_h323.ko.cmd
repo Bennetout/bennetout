@@ -1,0 +1,1 @@
+cmd_net/netfilter/nf_conntrack_h323.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/netfilter/nf_conntrack_h323.ko net/netfilter/nf_conntrack_h323.o net/netfilter/nf_conntrack_h323.mod.o
