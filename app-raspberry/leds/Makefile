@@ -2,7 +2,7 @@ SRC = $(wildcard *.c)
 OBJ = $(SRC:.c=.o)
 
 CCINCLUDE +=
-CINCLUDE = -I${PWD}/../wiringPi/wiringPi
+CINCLUDE = -I${PWD}/../libwiringPi/src
 all: $(OBJ)
 
 .c.o:

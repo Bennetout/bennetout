@@ -13,7 +13,7 @@ IP_RASPBERRY = 169.254.61.54
 export CC = arm-linux-gnueabihf-gcc
 export CCFLAGS = -g
 export CCINCLUDE =
-export LDFLAGS =  -L${PWD}/wiringPi/wiringPi -lpthread -lwiringPi -lrt
+export LDFLAGS =  -L${PWD}/libwiringPi -lpthread -lwiringPi -lrt
 
 EXEC = bennetout
 
