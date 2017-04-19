@@ -14,7 +14,8 @@
 /* Use a private port for the programming example */
 #define PORT_NUMBER			65000
 
-#define IP_ADDRESS			INADDR_ANY
+//#define IP_ADDRESS			INADDR_ANY
+#define IP_ADDRESS			"192.168.42.1"
 
 #define HEADER				0xAE
 #define TAIL				0xBD
@@ -34,6 +35,7 @@ struct sockaddr_in server, client;
 int run = 1;
 
 struct bennetout_message {
+
 	char header;
 	char command;
 	char len;
@@ -54,13 +56,13 @@ static void exit_failure()
 	exit(EXIT_FAILURE);
 }
 
-static void print_message (struct bennetout_message msg)
+static void print_message(struct bennetout_message msg)
 {
 	int i = 0;
 
 	printf("\t[0x%x | 0x%x | 0x%x | ", msg.header, msg.command, msg.len);
 
-	while (msg.payload[i] != TAIL) {
+	while (msg.payload[i] != TAIL && (i < MAX_LEN)) {
 		printf("0x%x", msg.payload[i++]);
 	}
 
@@ -94,7 +96,9 @@ int main(int argc, char *argv[])
 	int size_sock;
 	struct sigaction saio;
 	int current_state = STATE_READ;
-	struct bennetout_message message;
+	struct bennetout_message message_tx;
+	struct bennetout_message message_rx;
+
 	float rot_value = 0, inclinoX_value = 0, inclinoY_value = 0;
 
 	/* Define interrupt handler */
@@ -132,7 +136,8 @@ int main(int argc, char *argv[])
 			sizeof(reuseaddr_enable)) < 0)
 		perror("[ERROR ]: Setsockopt(SO_REUSEADDR) failed");
 
-	server.sin_addr.s_addr = htonl(IP_ADDRESS);
+	//server.sin_addr.s_addr = htonl(IP_ADDRESS);
+	server.sin_addr.s_addr = inet_addr(IP_ADDRESS);
 	/* AF_INET is IP version 4 */
     server.sin_family = AF_INET;
     server.sin_port = htons(PORT_NUMBER);
@@ -164,39 +169,41 @@ int main(int argc, char *argv[])
 	printf("[  OK  ]: New connected socket created\n");
 
 	/***********TEST***************/
-	rot_value = rot_get_value(1);
+	/*rot_value = rot_get_value(1);
 	inclinoX_value = inclino_getX_value(2);
-	inclinoY_value = inclino_getY_value(3);
+	inclinoY_value = inclino_getY_value(3);*/
 	/******************************/
 
 
 	while (run) {
 		switch (current_state) {
 		case STATE_READ:
-			ret = recv(client_sock_descr, &message, sizeof(message), MSG_NOSIGNAL);
+			memset(&message_rx, 0, sizeof(message_rx));
+			printf("[  OK  ]: Waiting a new message\n");
+			ret = recv(client_sock_descr, &message_rx, sizeof(message_rx), MSG_NOSIGNAL);
 			if (ret < 0) {
 				perror("[ERROR ]: Recv failed");
 				//exit_failure();
 				reconnect();
 			} else {
-				printf("[  OK  ]: Message received with success\n");
-				print_message(message);
+				printf("[  OK  ]: Message received with success ret = %d\n", ret);
+				print_message(message_rx);
 			}
 			current_state = STATE_WRITE;
 
 			break;
 		case STATE_WRITE:
-			message.header = HEADER;
-			message.command = CMD_SND_SENSORS;
-			message.payload[0] = 0xAA;
-			message.payload[1] = 0xBB;
-			message.payload[2] = 0xCC;
-			message.payload[3] = 0xDD;
-			message.payload[4] = 0xEE;
-			message.payload[5] = 0xFF;
-			message.payload[6] = TAIL;
-			message.len = 10;
-			ret = send(client_sock_descr, &message, (message.len), MSG_NOSIGNAL);
+			message_tx.header = HEADER;
+			message_tx.command = CMD_SND_SENSORS;
+			message_tx.payload[0] = 0xAA;
+			message_tx.payload[1] = 0xBB;
+			message_tx.payload[2] = 0xCC;
+			message_tx.payload[3] = 0xDD;
+			message_tx.payload[4] = 0xEE;
+			message_tx.payload[5] = 0xFF;
+			message_tx.payload[6] = TAIL;
+			message_tx.len = 10;
+			ret = send(client_sock_descr, &message_tx, (message_tx.len), MSG_NOSIGNAL);
 			if (ret < 0) {
 				perror("[ERROR ]: Send failed");
 				//exit_failure();
@@ -207,6 +214,7 @@ int main(int argc, char *argv[])
 
 			break;
 		}
+		sleep(1);
 	}
 
 	if (close(client_sock_descr) < 0)

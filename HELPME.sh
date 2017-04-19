@@ -1,13 +1,6 @@
-# bennetout
-
-# raspberry/
-Source code for the raspberry server
-
-# IP
-IP address = pi@169.254.61.54
+# Adresse IP par defaut : 169.254.61.54
+ssh pi@169.254.61.54
 mdp = raspberry
-
-Adresse IP par defaut : 169.254.61.54
 
 # internet sur wlan0 :
 wpa_passphrase Xperia >> /etc/wpa_supplicant/wpa_supplicant.conf

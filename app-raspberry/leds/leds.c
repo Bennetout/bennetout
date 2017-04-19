@@ -5,6 +5,7 @@
 #include <pthread.h>
 #include "leds.h"
 
+/* GPIO22(15) from raspberry pinout */
 #define GPIO_LED		3
 
 static void *blink_led(void);
