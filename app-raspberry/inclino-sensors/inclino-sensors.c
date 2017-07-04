@@ -57,7 +57,7 @@ float inclino_getX_value(int channel)
 		result = a * (float)atoi(buffer) + b;
 
 		//printf("x = %s\n", buffer);
-		printf("x = %.1f °\n", result);		
+		printf("x = %.1f\n", result);
 	}
 
 	if (result > 10)
@@ -102,7 +102,7 @@ float inclino_getY_value(int channel)
 		result = a * (float)atoi(buffer) + b;
 
 		//printf("x = %s\n", buffer);
-		printf("x = %.1f °\n", result);		
+		printf("y = %.1f\n", result);
 	}
 
 	if (result > 10)
