@@ -1,0 +1,5 @@
+1 = fleche
+2 = levage
+3 = porte
+4 = niveau X (parametré en dur)
+5 = niveau Y
