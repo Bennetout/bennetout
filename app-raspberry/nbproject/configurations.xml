@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+      <df name="communication">
+        <in>lvl0ProtocolThread.c</in>
+        <in>lvl1SocketCommunications.c</in>
+      </df>
+      <df name="inclino-sensors">
+        <in>inclino-sensors.c</in>
+      </df>
+      <df name="leds">
+        <in>leds.c</in>
+      </df>
+      <df name="libiio">
+        <in>buffer.c</in>
+        <in>channel.c</in>
+        <in>context.c</in>
+        <in>device.c</in>
+        <in>local.c</in>
+        <in>lock.c</in>
+        <in>utilities.c</in>
+      </df>
+      <df name="libwiringPi">
+        <df name="src">
+          <in>ads1115.c</in>
+          <in>bmp180.c</in>
+          <in>drcNet.c</in>
+          <in>drcSerial.c</in>
+          <in>ds18b20.c</in>
+          <in>htu21d.c</in>
+          <in>max31855.c</in>
+          <in>max5322.c</in>
+          <in>mcp23008.c</in>
+          <in>mcp23016.c</in>
+          <in>mcp23017.c</in>
+          <in>mcp23s08.c</in>
+          <in>mcp23s17.c</in>
+          <in>mcp3002.c</in>
+          <in>mcp3004.c</in>
+          <in>mcp3422.c</in>
+          <in>mcp4802.c</in>
+          <in>pcf8574.c</in>
+          <in>pcf8591.c</in>
+          <in>piHiPri.c</in>
+          <in>piThread.c</in>
+          <in>pseudoPins.c</in>
+          <in>rht03.c</in>
+          <in>sn3218.c</in>
+          <in>softPwm.c</in>
+          <in>softServo.c</in>
+          <in>softTone.c</in>
+          <in>sr595.c</in>
+          <in>wiringPi.c</in>
+          <in>wiringPiI2C.c</in>
+          <in>wiringPiSPI.c</in>
+          <in>wiringSerial.c</in>
+          <in>wiringShift.c</in>
+          <in>wpiExtensions.c</in>
+        </df>
+      </df>
+      <df name="rotation-sensors">
+        <in>rotation-sensors.c</in>
+      </df>
+      <df name="toolchain-raspbian">
+        <df name="armstubs">
+          <in>bin2c.c</in>
+        </df>
+        <df name="test_code">
+          <in>main.c</in>
+        </df>
+      </df>
+      <in>main.c</in>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+      <itemPath>nbproject/private/launcher.properties</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <compilerSet>GNU|GNU</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <flagsDictionary>
+        <element flagsID="0" commonFlags="-g"/>
+      </flagsDictionary>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>.</buildCommandWorkingDir>
+          <buildCommand>make all</buildCommand>
+          <cleanCommand>make clean</cleanCommand>
+          <executablePath>bennetout</executablePath>
+        </makeTool>
+        <preBuild>
+          <preBuildCommandWorkingDir>.</preBuildCommandWorkingDir>
+          <preBuildCommand></preBuildCommand>
+        </preBuild>
+      </makefileType>
+      <item path="communication/lvl0ProtocolThread.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="communication/lvl1SocketCommunications.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <folder path="0/leds">
+        <cTool>
+          <incDir>
+            <pElem>libwiringPi/src</pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <item path="inclino-sensors/inclino-sensors.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="leds/leds.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="libiio/buffer.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="libiio/channel.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="libiio/context.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="libiio/device.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="libiio/local.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="libiio/lock.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="libiio/utilities.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="libwiringPi/src/ads1115.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/bmp180.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/drcNet.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/drcSerial.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/ds18b20.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/htu21d.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/max31855.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/max5322.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/mcp23008.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/mcp23016.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/mcp23017.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/mcp23s08.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/mcp23s17.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/mcp3002.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/mcp3004.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/mcp3422.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/mcp4802.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/pcf8574.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/pcf8591.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/piHiPri.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/piThread.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/pseudoPins.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/rht03.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/sn3218.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/softPwm.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/softServo.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/softTone.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/sr595.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/wiringPi.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/wiringPiI2C.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/wiringPiSPI.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/wiringSerial.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/wiringShift.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="libwiringPi/src/wpiExtensions.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="main.c" ex="false" tool="0" flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="rotation-sensors/rotation-sensors.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+        <cTool flags="0">
+        </cTool>
+      </item>
+      <item path="toolchain-raspbian/armstubs/bin2c.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+      <item path="toolchain-raspbian/test_code/main.c"
+            ex="false"
+            tool="0"
+            flavor2="2">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
