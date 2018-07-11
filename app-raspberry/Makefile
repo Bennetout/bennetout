@@ -1,7 +1,8 @@
 PACKAGES = leds \
 		   libiio \
 		   rotation-sensors \
-		   inclino-sensors
+		   inclino-sensors \
+		   communication
 
 SRC = $(wildcard */*.c)
 OBJ = $(SRC:.c=.o)

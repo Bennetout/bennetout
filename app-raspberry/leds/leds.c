@@ -3,6 +3,7 @@
 #include <string.h>
 #include <wiringPi.h>
 #include <pthread.h>
+#include <unistd.h>
 #include "leds.h"
 
 /* GPIO22(15) from raspberry pinout */
