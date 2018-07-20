@@ -9,12 +9,15 @@
 #include <sys/socket.h>
 #include <pthread.h>
 #include <arpa/inet.h>
+#include "../leds/leds.h"
+#include "../inclino-sensors/inclino-sensors.h"
+#include "../rotation-sensors/rotation-sensors.h"
 
 /* Use a private port for the programming example */
 #define PORT_NUMBER			65000
 
 //#define IP_ADDRESS			INADDR_ANY
-#define IP_ADDRESS			"10.42.0.1"
+#define IP_ADDRESS			"192.168.42.1"
 
 #define CMD_GET_SENSORS		1
 #define CMD_SND_SENSORS		2
@@ -25,8 +28,6 @@
 typedef void (*socket_rx_callback) (const char *data, unsigned int length);
 
 int socket_init(void);
-
-void socket_close(void);
 
 int socket_start_rx_thread(socket_rx_callback callback);
 
