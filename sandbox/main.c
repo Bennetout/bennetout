@@ -24,8 +24,9 @@ int main(int argc, char *argv[]) {
 	/* For ctrl^C interruption */
 	sigaction(SIGINT, &saio, 0);
 
-        com_start_server();
-	while(run);
+        if(com_start_server() == 0)
+            while(run);
+            
         com_stop_server();
 
 	return 0;

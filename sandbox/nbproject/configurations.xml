@@ -6,8 +6,6 @@
         <in>lvl0ProtocolThread.c</in>
         <in>lvl1SocketCommunications.c</in>
       </df>
-      <in>lvl0ProtocolThread.c</in>
-      <in>lvl1SocketCommunications.c</in>
       <in>main.c</in>
     </df>
     <logicalFolder name="ExternalFiles"
@@ -57,10 +55,6 @@
             flavor2="0">
         <cTool flags="0">
         </cTool>
-      </item>
-      <item path="lvl0ProtocolThread.c" ex="false" tool="0" flavor2="2">
-      </item>
-      <item path="lvl1SocketCommunications.c" ex="false" tool="0" flavor2="2">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="2">
         <cTool flags="0">
