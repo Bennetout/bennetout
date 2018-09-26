@@ -14,7 +14,7 @@
 #define PORT_NUMBER			65000
 
 //#define IP_ADDRESS			INADDR_ANY
-#define IP_ADDRESS			"10.42.0.1"
+#define IP_ADDRESS			"10.3.141.1"
 
 #define CMD_GET_SENSORS		1
 #define CMD_SND_SENSORS		2
@@ -22,14 +22,12 @@
 #define STATE_READ			1
 #define STATE_WRITE			2
 
-typedef void (*socket_rx_callback) (const char *data, unsigned int length);
+typedef void (*socket_rx_callback) (const unsigned char *data, unsigned int length);
 
-int socket_init(void);
+int socket_server_start(void);
 
-void socket_close(void);
+void socket_server_stop(void);
 
-int socket_start_rx_thread(socket_rx_callback callback);
+void socket_register_rx_callback(socket_rx_callback callback);
 
-int socket_stop_rx_thread(void);
-
-int socket_tx(const char* data, unsigned int length);
+int socket_tx(const unsigned char* data, unsigned int length);

@@ -1,4 +1,6 @@
 #include "lvl0ProtocolThread.h"
+#include "ProtocolConstants.h"
+#include <errno.h>
 
 #define STX 0x02
 #define TRAME_LENGTH_MAX_SIZE 8000
@@ -12,19 +14,23 @@
 #define INDEX_ID        3
 #define INDEX_DATA      4
     
-static pthread_t thread_rx;
+static pthread_t thread_rx, thread_accept;
 struct sockaddr_in server, client;
 int sock_descr = -1, client_sock_descr = -1;
-static int run = 1;
+static int run = 0, accept_thread_run = 1;
 
 static void *thread_socket_rx(void);
-static void reconnect(void);
+static void *thread_socket_accept(void);
+static int reconnect(void);
+unsigned int crc32(unsigned char *message, int length);
+int verifyChecksum(char* data, int data_length, unsigned int checksum);
+int start_rx_thread(void);
+int stop_rx_thread(void);
 
-int socket_init(void) {
+int socket_server_start(void) {
 
     int ret;
     int reuseaddr_enable = 1;
-    int size_sock;
 
     /**
      * AF_INET is IP version 4
@@ -34,97 +40,127 @@ int socket_init(void) {
     sock_descr = socket(AF_INET , SOCK_STREAM , 0);
     if (sock_descr < 0) {
         perror("[ERROR ]: Could not create socket");
-		socket_close();
-                return sock_descr;
-	}
-	printf("[  OK  ]: Socket endpoint created\n");
+        return sock_descr;
+    }
+    printf("[  OK  ]: Socket endpoint created\n");
 
-	/**
-	 * Permits multiple AF_INET sockets to be bound to an identical
-	 * socket address. Useful fos this programming example when relaunching
-	 * the program many times
-	 **/
-	if (setsockopt(sock_descr, SOL_SOCKET, SO_REUSEADDR, &reuseaddr_enable,
-			sizeof(reuseaddr_enable)) < 0) {
-            perror("[ERROR ]: Setsockopt(SO_REUSEADDR) failed");
+    /**
+     * Permits multiple AF_INET sockets to be bound to an identical
+     * socket address.
+     **/
+    if (setsockopt(sock_descr, SOL_SOCKET, SO_REUSEADDR, &reuseaddr_enable,
+                    sizeof(reuseaddr_enable)) < 0) {
+        perror("[ERROR ]: Setsockopt(SO_REUSEADDR) failed");
+        return -1;
+    }
+
+    // Accept and Recv timeouts
+    /*struct timeval tv;
+    tv.tv_sec = 5;
+    tv.tv_usec = 0;
+    if (setsockopt(sock_descr, SOL_SOCKET, SO_RCVTIMEO, (const char*)&tv, sizeof tv) < 0) {
+        perror("[ERROR ]: Setsockopt(SO_RCVTIMEO) failed");
+        return -1;
+    }*/
+
+    //server.sin_addr.s_addr = htonl(IP_ADDRESS);
+    server.sin_addr.s_addr = inet_addr(IP_ADDRESS);
+    /* AF_INET is IP version 4 */
+    server.sin_family = AF_INET;
+    server.sin_port = htons(PORT_NUMBER);
+
+    if (bind(sock_descr, (struct sockaddr *)&server, sizeof(server)) < 0) {
+            perror("[ERROR ]: Bind failed");
             return -1;
-        }
+    }
+    printf("[  OK  ]: Address probing success\n");
 
-	//server.sin_addr.s_addr = htonl(IP_ADDRESS);
-	server.sin_addr.s_addr = inet_addr(IP_ADDRESS);
-	/* AF_INET is IP version 4 */
-        server.sin_family = AF_INET;
-        server.sin_port = htons(PORT_NUMBER);
+    /* Maximum length of the pending connection queue = 1 */
+    if (listen(sock_descr, 1) < 0) {
+            perror("[ERROR ]: Listen failed");
+            return -1;
+    }
+    printf("[  OK  ]: Socket set as passive\n");
 
-	if (bind(sock_descr, (struct sockaddr *)&server, sizeof(server)) < 0) {
-		perror("[ERROR ]: Bind failed");
-		socket_close();
-                return -1;
-	}
-	printf("[  OK  ]: Address probing success\n");
+    if (pthread_create(&thread_accept, NULL, (void *)thread_socket_accept, NULL) != 0) {
+        perror("[ERROR ]: creating accept server thread: ");
+        return -1;
+    } else {
+        printf("[  OK  ]: Server thread started\n"); 
+    }
 
-	/* Maximum length of the pending connection queue = 1 */
-	if (listen(sock_descr, 1) < 0) {
-		perror("[ERROR ]: Listen failed");
-		socket_close();
-                return -1;
-	}
-	printf("[  OK  ]: Socket set as passive\n");
-	printf("\tWaiting for incoming connection...\n");
+    return 0;
+}
 
-	size_sock = sizeof(server);
-	client_sock_descr = accept(sock_descr, (struct sockaddr *)&client,
-			(socklen_t *)&size_sock);
-	if (client_sock_descr < 0) {
-		perror("[ERROR ]: Accept failed");
-		socket_close();
-                return -1;
-	}
-
-	printf("[  OK  ]: New connected socket created\n");
-        
-        return 0;
+int start_rx_thread(void) {
+    
+   return pthread_create(&thread_rx, NULL, (void *)thread_socket_rx, NULL);
 }
 
 socket_rx_callback myRxCallback;
-int socket_start_rx_thread(socket_rx_callback callback) {
+void socket_register_rx_callback(socket_rx_callback callback) {
 
-	int ret;
-
-        myRxCallback = callback;
-	ret = pthread_create(&thread_rx, NULL, (void *)thread_socket_rx, NULL);
-	if (ret != 0) {
-		perror("Error creating thread: ");
-		return -1;
-	} else {
-		printf("START THREAD rx \n");
-	}
-        
-        return ret;
+    myRxCallback = callback;
 }
 
 // TODO: wait pthread join
-int socket_stop_rx_thread(void) {
+int stop_rx_thread(void) {
     int ret = 0;
+    
+    if (run == 0)
+        return 0;
     
     run = 0;
     
+    ret = pthread_cancel(thread_rx);
+    //ret = pthread_join(thread_rx, NULL);
+    if (ret != 0) {
+        perror("[ERROR ]: pthread_join: ");
+    } else {
+        printf("[  OK  ]: RX thread stopped\n"); 
+    }
+
     return ret;
 }
 
-int socket_tx(const char* data, unsigned int length) {
+int socket_tx(const unsigned char* data, unsigned int length) {
 
-	char to_send[64] = {'\0'};
-	int ret;
+	int ret, i;
+        unsigned char toSend[TAB_MAX_SIZE];
+        unsigned char checksumByteArray[4] = {0};
 
-	ret = send(client_sock_descr, data, length, MSG_NOSIGNAL);
+        unsigned char lengthLsb = length & 0xFF;
+        unsigned char lengthMsb = (length >> 8) & 0xFF;
+
+        unsigned int checksum;
+        
+        int INDEX_CHECKSUM = INDEX_DATA + length;
+        int TOTAL_LENGTH = INDEX_CHECKSUM +4;
+        
+        toSend[INDEX_STX] = STX;
+        toSend[INDEX_LENGTH] = lengthLsb;
+        toSend[INDEX_LENGTH +1] = lengthMsb;
+        toSend[INDEX_ID] = 1;
+        memcpy(&toSend[INDEX_DATA], data, length);
+        checksum = crc32(toSend, INDEX_CHECKSUM);
+
+        checksumByteArray[0] = checksum & 0x000000FF;
+        checksumByteArray[1] = (checksum >> 8) & 0x000000FF;
+        checksumByteArray[2] = (checksum >> 16) & 0x000000FF;
+        checksumByteArray[3] = (checksum >> 24) & 0x000000FF;
+        memcpy(&toSend[INDEX_CHECKSUM], checksumByteArray, 4);
+
+	ret = send(client_sock_descr, toSend, TOTAL_LENGTH, MSG_NOSIGNAL);
 	if (ret < 0) {
 		perror("[ERROR ]: Send failed");
 		//exit_failure();
 		reconnect();
 	}
-	printf("[  OK  ]: Message sent with success\n");
-	memset(to_send, '\0', 64);
+	/*printf("[  OK  ]: Message sent with success :[");
+        for (i = 0; i < TOTAL_LENGTH -1; i++) {
+            printf("0x%x ", toSend[i]);
+        }
+        printf("0x%x]\n", toSend[TOTAL_LENGTH -1]);*/
         
         return ret;
 }
@@ -134,12 +170,12 @@ unsigned char readNextByte(void) {
     unsigned char byteRx;
     
     ret = recv(client_sock_descr, &byteRx, 1, MSG_NOSIGNAL);
-    if (ret < 0) {
+    /*if (ret < 0) {
 	perror("[ERROR ]: Recv failed");
-        socket_stop_rx_thread();
+        stop_rx_thread();
 	reconnect();
         return -1;
-    }
+    }*/
     
     return byteRx;
 }
@@ -156,7 +192,6 @@ void *thread_socket_rx(void) {
     unsigned char value;
     int indexData;
 
-    const char* forTest = "/10.2/23.6/36.5/5.3/5.3/";
     //char to_send[64] = {0};
     unsigned char* dataIn = NULL;
     unsigned char checksumByteArray[4] = {0};
@@ -168,6 +203,8 @@ void *thread_socket_rx(void) {
     inclinoX_value ++;
     inclinoY_value ++;
 
+    run = 1;
+    
     while (run) {
 
         switch (state) {
@@ -192,8 +229,9 @@ void *thread_socket_rx(void) {
                 //dataIn = new byte[length + WITHOUT_DATA_LENGTH];
                 dataIn = malloc((length + WITHOUT_DATA_LENGTH -4) * sizeof(char));
                 if(dataIn == NULL) {
-                    printf("[ERROR ]: malloc failed, dataIn = NULL");
-                    return;
+                    printf("[ERROR ]: malloc failed, dataIn = NULL\n");
+                    run = 0;
+                    break;
                 }
                 dataIn[INDEX_STX] = STX;
                 dataIn[INDEX_LENGTH] = lengthLsb;
@@ -249,29 +287,85 @@ void *thread_socket_rx(void) {
     }
 }
 
-static void reconnect(void) {
-	int size_sock = sizeof(server);
+void *thread_socket_accept(void) {
 
-	printf("\tWait a new connection\n");
-	client_sock_descr = accept(sock_descr, (struct sockaddr *)&client,
-			(socklen_t *)&size_sock);
-	if (client_sock_descr < 0) {
-		perror("[ERROR ]: Accept failed");
-		socket_close();
-	}
-	printf("[  OK  ]: Reconnection to client success\n");
+    int size_sock;
+
+    size_sock = sizeof(server);
+    
+    while (accept_thread_run) {
+        
+        printf("\tWaiting for incoming connection...\n");
+        
+        client_sock_descr = accept(sock_descr, (struct sockaddr *)&client,
+                (socklen_t *)&size_sock);
+        
+        if (client_sock_descr < 0) {
+            perror("[ERROR ]: Accept failed"); 
+            accept_thread_run = 0;
+            return NULL;
+        } else {
+            printf("[  OK  ]: New connected socket created\n");
+
+            if (stop_rx_thread() != 0) {
+                accept_thread_run = 0;
+                return NULL;
+            }
+            
+            if (start_rx_thread() != 0) {
+                perror("[ERROR ]: creating RX thread: ");
+                accept_thread_run = 0;
+                return NULL;
+             } else {
+                printf("[  OK  ]: RX thread started\n");
+            }            
+        }
+    }
 }
 
-void socket_close(void) {
-	if (client_sock_descr > 0)
-		if (close(client_sock_descr) < 0)
-			perror("[ERROR ]: Could not close socket");
+static int reconnect(void) {
+    int size_sock = sizeof(server);
 
-	if (sock_descr > 0)
-		if (close(sock_descr) < 0)
-			perror("[ERROR ]: Could not close socket");
+    printf("\tWait a new connection\n");
+    client_sock_descr = accept(sock_descr, (struct sockaddr *)&client,
+                    (socklen_t *)&size_sock);
+    if (client_sock_descr < 0) {
+            perror("[ERROR ]: Accept failed");
+            socket_server_stop();
+           return -1;
+     }
+    
+    printf("[  OK  ]: Reconnection to client success\n");
+        
+    if (stop_rx_thread() != 0) {
+        printf("[ERROR ]: Unable to stop RX thread");
+        socket_server_stop();
+        return -1;
+    }
+    
+    if (start_rx_thread() != 0) {
+        perror("[ERROR ]: creating RX thread: ");
+        socket_server_stop();
+        return -1;
+    } else {
+        printf("[  OK  ]: RX thread started\n");
+    }
+    
+    return 0;
+}
 
-	printf("EXIT_FAILURE\n");
+void socket_server_stop(void) {
+    if (client_sock_descr > 0)
+        if (close(client_sock_descr) < 0)
+                perror("[ERROR ]: Could not close client socket");
+        else
+            printf("[  OK  ]: Client socket closed\n");
+
+    if (sock_descr > 0)
+        if (close(sock_descr) < 0)
+                perror("[ERROR ]: Could not close socket");
+        else
+            printf("[  OK  ]: Server socket closed\n");
 }
 
 // ---------------------------- reverse --------------------------------
