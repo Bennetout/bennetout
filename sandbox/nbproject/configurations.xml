@@ -4,9 +4,7 @@
     <df root="." name="0">
       <df name="actionneurs">
         <in>GpioRaspDrv.c</in>
-        <in>GpioRaspDrv.h</in>
         <in>RelayModuleDrv.c</in>
-        <in>RelayModuleDrv.h</in>
       </df>
       <df name="communication">
         <in>lvl0ProtocolThread.c</in>
@@ -53,13 +51,17 @@
           <preBuildCommand></preBuildCommand>
         </preBuild>
       </makefileType>
-      <item path="actionneurs/GpioRaspDrv.c" ex="false" tool="0" flavor2="0">
+      <item path="actionneurs/GpioRaspDrv.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="1">
+          <incDir>
+            <pElem>/usr/arm-linux-gnueabihf/include/bits</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include/sys</pElem>
+            <pElem>actionneurs</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include</pElem>
+          </incDir>
+        </cTool>
       </item>
-      <item path="actionneurs/GpioRaspDrv.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="actionneurs/RelayModuleDrv.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="actionneurs/RelayModuleDrv.h" ex="false" tool="3" flavor2="0">
+      <item path="actionneurs/RelayModuleDrv.c" ex="false" tool="0" flavor2="2">
       </item>
       <item path="communication/lvl0ProtocolThread.c" ex="false" tool="0" flavor2="3">
         <cTool flags="1">
@@ -86,7 +88,12 @@
       <item path="communication/sensorValuesGenerator.c"
             ex="false"
             tool="0"
-            flavor2="2">
+            flavor2="3">
+        <cTool flags="1">
+          <incDir>
+            <pElem>communication</pElem>
+          </incDir>
+        </cTool>
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="2">
         <cTool flags="0">
