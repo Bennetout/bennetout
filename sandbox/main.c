@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "communication/lvl1SocketCommunications.h"
+#include "actionneurs/RelayModuleDrv.h"
 
 #define TRUE				1
 #define FALSE				0
@@ -23,7 +24,13 @@ int main(int argc, char *argv[]) {
 
 	/* For ctrl^C interruption */
 	sigaction(SIGINT, &saio, 0);
-
+        
+        if (relay_init() != 0) {
+            printf("[ERROR ]: unable to initialize relays\n");
+            return -1;
+        }
+        printf("[  OK  ]: Relays initializations success\n");
+        
         if(com_start_server() == 0)
             while(run);
             

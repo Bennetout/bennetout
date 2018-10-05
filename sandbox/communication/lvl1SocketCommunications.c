@@ -1,6 +1,7 @@
 #include "lvl1SocketCommunications.h"
 #include "ProtocolConstants.h"
 #include "sensorValuesGenerator.h"
+#include "../actionneurs/RelayModuleDrv.h"
 #include <time.h>
 
 //                snprintf(to_send, 64, "/%.1f/%.1f/%.1f/%.1f/%.1f/", fleche_value, levage_value, porte_value, inclinoX_value, inclinoY_value);
