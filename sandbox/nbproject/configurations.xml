@@ -6,6 +6,23 @@
         <in>GpioRaspDrv.c</in>
         <in>RelayModuleDrv.c</in>
       </df>
+      <df name="capteurs">
+        <df name="inclino-sensors">
+          <in>inclino-sensors.c</in>
+        </df>
+        <df name="libiio">
+          <in>buffer.c</in>
+          <in>channel.c</in>
+          <in>context.c</in>
+          <in>device.c</in>
+          <in>local.c</in>
+          <in>lock.c</in>
+          <in>utilities.c</in>
+        </df>
+        <df name="rotation-sensors">
+          <in>rotation-sensors.c</in>
+        </df>
+      </df>
       <df name="communication">
         <in>lvl0ProtocolThread.c</in>
         <in>lvl1SocketCommunications.c</in>
@@ -56,18 +73,112 @@
           <incDir>
             <pElem>/usr/arm-linux-gnueabihf/include/bits</pElem>
             <pElem>/usr/arm-linux-gnueabihf/include/sys</pElem>
-            <pElem>actionneurs</pElem>
+            <pElem>/usr/lib/gcc-cross/arm-linux-gnueabihf/7/include</pElem>
             <pElem>/usr/arm-linux-gnueabihf/include</pElem>
+            <pElem>actionneurs</pElem>
           </incDir>
         </cTool>
       </item>
-      <item path="actionneurs/RelayModuleDrv.c" ex="false" tool="0" flavor2="2">
+      <item path="actionneurs/RelayModuleDrv.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="1">
+          <incDir>
+            <pElem>/usr/lib/gcc-cross/arm-linux-gnueabihf/7/include</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include/bits</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include</pElem>
+            <pElem>actionneurs</pElem>
+          </incDir>
+        </cTool>
       </item>
-      <item path="communication/lvl0ProtocolThread.c" ex="false" tool="0" flavor2="3">
+      <item path="capteurs/inclino-sensors/inclino-sensors.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="1">
+        </cTool>
+      </item>
+      <item path="capteurs/libiio/buffer.c" ex="false" tool="0" flavor2="3">
         <cTool flags="1">
           <incDir>
             <pElem>/usr/arm-linux-gnueabihf/include/bits</pElem>
             <pElem>/usr/arm-linux-gnueabihf/include</pElem>
+            <pElem>/usr/lib/gcc-cross/arm-linux-gnueabihf/7/include</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include/sys</pElem>
+            <pElem>capteurs/libiio</pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="capteurs/libiio/channel.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="1">
+          <incDir>
+            <pElem>/usr/lib/gcc-cross/arm-linux-gnueabihf/7/include</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include/bits</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include</pElem>
+            <pElem>capteurs/libiio</pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="capteurs/libiio/context.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="1">
+          <incDir>
+            <pElem>/usr/lib/gcc-cross/arm-linux-gnueabihf/7/include</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include/bits</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include</pElem>
+            <pElem>capteurs/libiio</pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="capteurs/libiio/device.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="1">
+          <incDir>
+            <pElem>/usr/lib/gcc-cross/arm-linux-gnueabihf/7/include</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include/bits</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include</pElem>
+            <pElem>capteurs/libiio</pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="capteurs/libiio/local.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="1">
+          <incDir>
+            <pElem>/usr/lib/gcc-cross/arm-linux-gnueabihf/7/include</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include/bits</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include/bits/types</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include/sys</pElem>
+            <pElem>capteurs/libiio</pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="capteurs/libiio/lock.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="1">
+          <incDir>
+            <pElem>/usr/arm-linux-gnueabihf/include</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include/bits</pElem>
+            <pElem>capteurs/libiio</pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="capteurs/libiio/utilities.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="1">
+          <incDir>
+            <pElem>/usr/arm-linux-gnueabihf/include/bits</pElem>
+            <pElem>/usr/lib/gcc-cross/arm-linux-gnueabihf/7/include</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include/bits/types</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include</pElem>
+            <pElem>capteurs/libiio</pElem>
+          </incDir>
+        </cTool>
+      </item>
+      <item path="capteurs/rotation-sensors/rotation-sensors.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="1">
+        </cTool>
+      </item>
+      <item path="communication/lvl0ProtocolThread.c" ex="false" tool="0" flavor2="3">
+        <cTool flags="1">
+          <incDir>
             <pElem>/usr/arm-linux-gnueabihf/include/netinet</pElem>
             <pElem>communication</pElem>
           </incDir>
@@ -79,8 +190,8 @@
             flavor2="3">
         <cTool flags="1">
           <incDir>
-            <pElem>/usr/arm-linux-gnueabihf/include/bits</pElem>
-            <pElem>/usr/arm-linux-gnueabihf/include</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include/bits/types</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include/netinet</pElem>
             <pElem>communication</pElem>
           </incDir>
         </cTool>
@@ -95,6 +206,35 @@
           </incDir>
         </cTool>
       </item>
+      <folder path="0/capteurs/inclino-sensors">
+        <cTool>
+          <incDir>
+            <pElem>/usr/arm-linux-gnueabihf/include/bits</pElem>
+            <pElem>/usr/lib/gcc-cross/arm-linux-gnueabihf/7/include</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include</pElem>
+            <pElem>capteurs/inclino-sensors</pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="0/capteurs/rotation-sensors">
+        <cTool>
+          <incDir>
+            <pElem>/usr/arm-linux-gnueabihf/include/bits</pElem>
+            <pElem>/usr/lib/gcc-cross/arm-linux-gnueabihf/7/include</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include</pElem>
+            <pElem>capteurs/rotation-sensors</pElem>
+          </incDir>
+        </cTool>
+      </folder>
+      <folder path="0/communication">
+        <cTool>
+          <incDir>
+            <pElem>/usr/arm-linux-gnueabihf/include/bits</pElem>
+            <pElem>/usr/lib/gcc-cross/arm-linux-gnueabihf/7/include</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include</pElem>
+          </incDir>
+        </cTool>
+      </folder>
       <item path="main.c" ex="false" tool="0" flavor2="2">
         <cTool flags="0">
         </cTool>

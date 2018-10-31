@@ -24,9 +24,11 @@ void messageFromLvl0(const unsigned char *data, unsigned int length) {
     int i;
     time_t t = time(NULL);
     struct tm tm = *localtime(&t);
-
+    unsigned char id;
+    unsigned char arg;
+    unsigned char state;
+     
     /*printf("%d-%d-%d %d:%d:%d ", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
-
     printf("Rx: [");
     for (i = 0; i < length -1; i++) {
         printf("0x%x ", data[i]);
@@ -37,9 +39,6 @@ void messageFromLvl0(const unsigned char *data, unsigned int length) {
          printf("Empty data received from Socket");
          return;
      }
-
-     unsigned char id;
-     unsigned char arg;
 
      id = data[0];
      switch (id) {
@@ -54,6 +53,20 @@ void messageFromLvl0(const unsigned char *data, unsigned int length) {
          case ID_GET_SENSORS_VALUES:
             sendSensorsValues();
             break;
+            
+         case ID_ACTION:
+             if (length < 3) {
+                printf("[ERROR ]: empty arg with id ID_ACTION");
+                return;
+             }
+             arg = data[1];
+             state = data[2];
+             if (state != STATE_HIGH && state != STATE_LOW) {
+                 printf("[ERROR ]: unknown state(%x0x) with id ID_ACTION", state);
+                return;
+             }
+             relay_set_state(arg, state);
+             break;
      }
 }
 
@@ -67,7 +80,13 @@ int com_start_server(void) {
     }
     
     socket_register_rx_callback(messageFromLvl0);
-    
+            
+    if (relay_init() != 0) {
+        printf("[ERROR ]: unable to initialize relays\n");
+        return -1;
+    }
+    printf("[  OK  ]: Relays initializations success\n");
+        
     return ret;
 }
 

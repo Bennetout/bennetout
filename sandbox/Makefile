@@ -1,9 +1,15 @@
 IP_RASPBERRY = 192.168.1.10
 
 PACKAGES = communication \
-	    actionneurs
+	    actionneurs \
+	    capteurs/libiio \
+	    capteurs/rotation-sensors \
+	    capteurs/inclino-sensors
 
-SRC = $(wildcard */*.c)
+#SRC = $(wildcard *.c)
+SRC = $(wildcard communication/*.c)
+SRC += $(wildcard actionneurs/*.c)
+SRC += $(wildcard capteurs/*/*.c)
 OBJ = $(SRC:.c=.o)
 
 MAIN = main.c
