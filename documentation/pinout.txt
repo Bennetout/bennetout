@@ -3,3 +3,10 @@
 3 = porte
 4 = niveau X (parametré en dur)
 5 = niveau Y
+
+V2
+1 = fleche
+2 = porte
+3 = Niveau X (parametré en dur)
+4 = levage
+5 = niveau Y

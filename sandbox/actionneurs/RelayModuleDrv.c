@@ -17,7 +17,7 @@ int relay_init() {
     }
     
     for (i = 0; i < RELAY_NB; i++) {
-        if (GPIOWrite(relays[i], STATE_LOW) != 0)
+        if (GPIOWrite(relays[i], STATE_HIGH) != 0)
             return -1;
     }
     
