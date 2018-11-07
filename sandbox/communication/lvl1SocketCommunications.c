@@ -2,6 +2,9 @@
 #include "ProtocolConstants.h"
 #include "sensorValuesGenerator.h"
 #include "../actionneurs/RelayModuleDrv.h"
+#include "../capteurs/inclino-sensors/inclino-sensors.h"
+#include "../capteurs/rotation-sensors/rotation-sensors.h"
+
 #include <time.h>
 
 //                snprintf(to_send, 64, "/%.1f/%.1f/%.1f/%.1f/%.1f/", fleche_value, levage_value, porte_value, inclinoX_value, inclinoY_value);
@@ -96,9 +99,29 @@ int com_stop_server(void) {
 
 void sendSensorsValues(void) {
     
-    char randomvalues[MAX_RETURN_BUF_SIZE];
+    //char randomvalues[MAX_RETURN_BUF_SIZE];
     //int length = getRandomValues(randomvalues);
-    int length = getRandomValuesLogic(randomvalues);
+    //int length = getRandomValuesLogic(randomvalues);
+    char to_send[64] = {'\0'};
+
+    float fleche_value = 0;
+    float levage_value = 0;
+    float porte_value = 0;
+    float inclinoX_value = 0;
+    float inclinoY_value = 0;
+    int length;
+        
+    fleche_value = rot_get_value(1);
+    levage_value = rot_get_value(2);
+    porte_value = rot_get_value(3);
+    inclinoX_value = inclino_getX_value(4);
+    inclinoY_value = inclino_getY_value(5);
+
+    printf("fleche_value = %.1f\nlevage_value = %.1f\nporte_value = %.1f\nX = %.1f\nY = %.1f\n", fleche_value, levage_value, porte_value, inclinoX_value, inclinoY_value);
+    snprintf(to_send, 64, "/%.1f/%.1f/%.1f/%.1f/%.1f/", fleche_value, levage_value, porte_value, inclinoX_value, inclinoY_value);
+    printf("to send = %s\n", to_send);
+    length = strlen(to_send);
+
     unsigned char toSend[TAB_MAX_SIZE];
     
     if (length > TAB_MAX_SIZE) {
@@ -107,7 +130,7 @@ void sendSensorsValues(void) {
     }
     
     toSend[0] = ID_SEND_SENSORS_VALUES;
-    memcpy(&toSend[1], randomvalues, length);
+    memcpy(&toSend[1], to_send, length);
     
     socket_tx(toSend, length +1);
 }
