@@ -5,6 +5,7 @@
 #include "communication/lvl1SocketCommunications.h"
 #include "capteurs/inclino-sensors/inclino-sensors.h"
 #include "capteurs/rotation-sensors/rotation-sensors.h"
+#include "actionneurs/RelayModuleDrv.h"
 
 #define TRUE				1
 #define FALSE				0
@@ -30,6 +31,12 @@ int main(int argc, char *argv[]) {
         adc_driver_init();
         rot_init();
         inclino_init();
+        if (relay_init() != 0) {
+            printf("[ERROR ]: unable to initialize relays\n");
+            return -1;
+        }
+        printf("[  OK  ]: Relays initializations success\n");
+    
         if(com_start_server() == 0)
             while(run);
             

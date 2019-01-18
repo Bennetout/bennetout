@@ -1,0 +1,12 @@
+[Unit]
+Description=Bennetout server
+Wants=network-online.target
+After=multi-user.target network-online.target
+
+[Service]
+Type=simple
+ExecStart=/home/pi/bennetout
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

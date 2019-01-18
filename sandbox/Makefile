@@ -4,12 +4,14 @@ PACKAGES = communication \
 	    actionneurs \
 	    capteurs/libiio \
 	    capteurs/rotation-sensors \
-	    capteurs/inclino-sensors
+	    capteurs/inclino-sensors \
+	    simulations
 
 #SRC = $(wildcard *.c)
 SRC = $(wildcard communication/*.c)
 SRC += $(wildcard actionneurs/*.c)
 SRC += $(wildcard capteurs/*/*.c)
+SRC += $(wildcard simulations/*.c)
 OBJ = $(SRC:.c=.o)
 
 MAIN = main.c

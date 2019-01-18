@@ -32,6 +32,10 @@
 #define ID_GET_SENSORS_VALUES       0xE0
 #define ID_SEND_SENSORS_VALUES      0xE1
 #define ID_ACTION                   0xE2
+#define ID_SET_SENSOR_VALUE         0xE3
+#define ID_STOP_SET_SENSOR_VALUE    0xE4
+#define ID_SET_SENSOR_VALUE_FINISH  0xE5
+
 #define ID_USELESS                  0xD0
 
 #define ARG_ACTION_1                0x00
@@ -42,6 +46,10 @@
 #define ARG_ACTION_6                0x05
 #define ARG_ACTION_7                0x06
 #define ARG_ACTION_8                0x07
+
+#define ARG_PORTE                   0x01
+#define ARG_FLECHE                  0x02
+#define ARG_LEVAGE                  0x03
 
 #endif /* PROTOCOLCONSTANTS_H */
 
