@@ -28,7 +28,11 @@
         <in>lvl1SocketCommunications.c</in>
         <in>sensorValuesGenerator.c</in>
       </df>
+      <df name="simulations">
+        <in>sensorValuesGenerator.c</in>
+      </df>
       <in>main.c</in>
+      <in>user-defines.h</in>
     </df>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -235,9 +239,28 @@
           </incDir>
         </cTool>
       </folder>
+      <folder path="0/simulations">
+        <cTool>
+          <incDir>
+            <pElem>/usr/arm-linux-gnueabihf/include/bits</pElem>
+            <pElem>/usr/lib/gcc-cross/arm-linux-gnueabihf/7/include</pElem>
+            <pElem>/usr/arm-linux-gnueabihf/include</pElem>
+            <pElem>simulations</pElem>
+          </incDir>
+        </cTool>
+      </folder>
       <item path="main.c" ex="false" tool="0" flavor2="2">
         <cTool flags="0">
         </cTool>
+      </item>
+      <item path="simulations/sensorValuesGenerator.c"
+            ex="false"
+            tool="0"
+            flavor2="3">
+        <cTool flags="1">
+        </cTool>
+      </item>
+      <item path="user-defines.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

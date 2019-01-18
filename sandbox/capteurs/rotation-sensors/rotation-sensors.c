@@ -56,8 +56,8 @@ float rot_get_value(int channel)
 
 	if (iio_channel_attr_read(channel_rot, "raw", buffer, BUFFER_SIZE) > 0) {
 		result = a * (float)atoi(buffer) + b;			
-		printf("%s\n", buffer);
-		printf("angle = %.1f\n", result);
+		//printf("%s\n", buffer);
+		//printf("angle = %.1f\n", result);
 	}
 
 	return result;
