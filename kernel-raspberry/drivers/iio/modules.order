@@ -1,6 +1,0 @@
-kernel/drivers/iio/adc/mcp320x.ko
-kernel/drivers/iio/common/ms_sensors/ms_sensors_i2c.ko
-kernel/drivers/iio/dac/mcp4725.ko
-kernel/drivers/iio/dac/mcp4922.ko
-kernel/drivers/iio/humidity/dht11.ko
-kernel/drivers/iio/humidity/htu21.ko

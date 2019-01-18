@@ -1,1 +1,0 @@
-cmd_drivers/media/rc/keymaps/rc-gadmei-rm008z.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/rc/keymaps/rc-gadmei-rm008z.ko drivers/media/rc/keymaps/rc-gadmei-rm008z.o drivers/media/rc/keymaps/rc-gadmei-rm008z.mod.o

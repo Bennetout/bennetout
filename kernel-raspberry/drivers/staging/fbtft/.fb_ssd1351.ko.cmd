@@ -1,1 +1,0 @@
-cmd_drivers/staging/fbtft/fb_ssd1351.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/staging/fbtft/fb_ssd1351.ko drivers/staging/fbtft/fb_ssd1351.o drivers/staging/fbtft/fb_ssd1351.mod.o

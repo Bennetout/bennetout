@@ -1,1 +1,0 @@
-cmd_net/ipv6/netfilter/ip6t_REJECT.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/ipv6/netfilter/ip6t_REJECT.ko net/ipv6/netfilter/ip6t_REJECT.o net/ipv6/netfilter/ip6t_REJECT.mod.o

@@ -1,3 +1,0 @@
-kernel/drivers/usb/usbip/usbip-core.ko
-kernel/drivers/usb/usbip/vhci-hcd.ko
-kernel/drivers/usb/usbip/usbip-host.ko

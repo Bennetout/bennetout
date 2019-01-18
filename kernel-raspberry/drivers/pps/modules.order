@@ -1,3 +1,0 @@
-kernel/drivers/pps/clients/pps-ldisc.ko
-kernel/drivers/pps/clients/pps-gpio.ko
-kernel/drivers/pps/pps_core.ko

@@ -1,1 +1,0 @@
-cmd_sound/soc/codecs/snd-soc-arizona.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o sound/soc/codecs/snd-soc-arizona.ko sound/soc/codecs/snd-soc-arizona.o sound/soc/codecs/snd-soc-arizona.mod.o ;  true

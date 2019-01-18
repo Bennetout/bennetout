@@ -1,1 +1,0 @@
-cmd_drivers/media/usb/dvb-usb/dvb-usb-digitv.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/usb/dvb-usb/dvb-usb-digitv.ko drivers/media/usb/dvb-usb/dvb-usb-digitv.o drivers/media/usb/dvb-usb/dvb-usb-digitv.mod.o

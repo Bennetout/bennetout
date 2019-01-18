@@ -1,1 +1,0 @@
-cmd_net/netfilter/nf_conntrack_broadcast.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o net/netfilter/nf_conntrack_broadcast.ko net/netfilter/nf_conntrack_broadcast.o net/netfilter/nf_conntrack_broadcast.mod.o

@@ -1,1 +1,0 @@
-cmd_drivers/mfd/built-in.o :=  arm-linux-gnueabihf-ld -EL    -r -o drivers/mfd/built-in.o drivers/mfd/stmpe.o drivers/mfd/stmpe-i2c.o drivers/mfd/stmpe-spi.o drivers/mfd/arizona-core.o drivers/mfd/arizona-irq.o drivers/mfd/wm5102-tables.o drivers/mfd/mfd-core.o 
