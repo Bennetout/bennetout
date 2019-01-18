@@ -1,1 +1,0 @@
-cmd_drivers/media/rc/ir-jvc-decoder.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/rc/ir-jvc-decoder.ko drivers/media/rc/ir-jvc-decoder.o drivers/media/rc/ir-jvc-decoder.mod.o

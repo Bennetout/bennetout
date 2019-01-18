@@ -1,1 +1,0 @@
-cmd_drivers/media/rc/keymaps/rc-avermedia.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/media/rc/keymaps/rc-avermedia.ko drivers/media/rc/keymaps/rc-avermedia.o drivers/media/rc/keymaps/rc-avermedia.mod.o

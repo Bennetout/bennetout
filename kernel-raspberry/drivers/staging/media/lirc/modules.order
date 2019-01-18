@@ -1,4 +1,0 @@
-kernel/drivers/staging/media/lirc/lirc_imon.ko
-kernel/drivers/staging/media/lirc/lirc_rpi.ko
-kernel/drivers/staging/media/lirc/lirc_sasem.ko
-kernel/drivers/staging/media/lirc/lirc_serial.ko

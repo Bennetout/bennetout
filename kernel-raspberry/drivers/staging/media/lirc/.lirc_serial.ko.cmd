@@ -1,1 +1,0 @@
-cmd_drivers/staging/media/lirc/lirc_serial.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/staging/media/lirc/lirc_serial.ko drivers/staging/media/lirc/lirc_serial.o drivers/staging/media/lirc/lirc_serial.mod.o

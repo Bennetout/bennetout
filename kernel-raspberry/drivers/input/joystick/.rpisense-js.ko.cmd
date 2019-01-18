@@ -1,1 +1,0 @@
-cmd_drivers/input/joystick/rpisense-js.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/input/joystick/rpisense-js.ko drivers/input/joystick/rpisense-js.o drivers/input/joystick/rpisense-js.mod.o

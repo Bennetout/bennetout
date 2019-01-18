@@ -1,1 +1,0 @@
-cmd_sound/soc/codecs/snd-soc-adau1977.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o sound/soc/codecs/snd-soc-adau1977.ko sound/soc/codecs/snd-soc-adau1977.o sound/soc/codecs/snd-soc-adau1977.mod.o

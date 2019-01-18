@@ -1,1 +1,0 @@
-cmd_drivers/hid/hid-roccat-koneplus.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/hid/hid-roccat-koneplus.ko drivers/hid/hid-roccat-koneplus.o drivers/hid/hid-roccat-koneplus.mod.o

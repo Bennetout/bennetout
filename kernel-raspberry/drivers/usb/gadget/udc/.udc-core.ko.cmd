@@ -1,1 +1,0 @@
-cmd_drivers/usb/gadget/udc/udc-core.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o drivers/usb/gadget/udc/udc-core.ko drivers/usb/gadget/udc/udc-core.o drivers/usb/gadget/udc/udc-core.mod.o

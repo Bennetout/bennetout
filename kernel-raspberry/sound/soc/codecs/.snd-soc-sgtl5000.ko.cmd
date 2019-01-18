@@ -1,1 +1,0 @@
-cmd_sound/soc/codecs/snd-soc-sgtl5000.ko := arm-linux-gnueabihf-ld -EL -r  -T ./scripts/module-common.lds --build-id  -o sound/soc/codecs/snd-soc-sgtl5000.ko sound/soc/codecs/snd-soc-sgtl5000.o sound/soc/codecs/snd-soc-sgtl5000.mod.o ;  true
