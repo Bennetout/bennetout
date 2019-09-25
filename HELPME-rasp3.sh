@@ -6,8 +6,13 @@ ssh-keygen # Si .ssh/ n'existe pas déjà
 # Sur le pc à autoriser :
 ssh-copy-id pi@192.168.1.10
 
+sshpass -p "raspberry" scp bennetout pi@10.17.10.28:/home/pi
+
 admin
 mdp habituel
+
+# Voir logs du service systemd
+sudo journalctl -u bennetout.service 
 
 raspberry pi3 pinout :
 http://pi4j.com/images/j8header-3b.png
