@@ -16,7 +16,6 @@ OBJ = $(SRC:.c=.o)
 
 MAIN = main.c
 
-#export CC = gcc
 export CC = arm-linux-gnueabihf-gcc
 
 export CCFLAGS = -g
@@ -33,7 +32,6 @@ clean:
 all: clean
 	for p in $(PACKAGES); do (cd $$p; $(MAKE) $@); done
 	$(CC) $(CCFLAGS) $(CCINCLUDE) $(OBJ) $(MAIN) -o $(EXEC) $(LDFLAGS)
-
 	
 board:
-	scp $(EXEC) pi@$(IP_RASPBERRY):/home/pi/
+	sshpass -p "raspberry" scp $(EXEC) pi@$(IP_RASPBERRY):/home/pi

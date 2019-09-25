@@ -19,3 +19,6 @@ copier libwiringPi.so sur la raspberry dans /lib
 # Led ici: 
 --x----------------- # GND
 -------x------------ # GPIO3
+
+# Pour compiler avec gcc
+make all CC=gcc
