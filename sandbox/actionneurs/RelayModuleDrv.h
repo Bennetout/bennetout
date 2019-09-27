@@ -21,6 +21,8 @@
 
 int relay_init(void);
 
+int relay_disable_all(void);
+
 int relay_set_state(int relay_number, int state);
 
 #endif /* RELAYMODULEDRV_H */

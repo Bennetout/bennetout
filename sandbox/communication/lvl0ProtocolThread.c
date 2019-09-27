@@ -285,6 +285,8 @@ void *thread_socket_rx(void) {
                 break;
         }
     }
+    /* Si plus de communication avec un client, on désactive toutes les commandes en cours par sécurité*/
+    relay_disable_all();
 }
 
 void *thread_socket_accept(void) {
@@ -306,6 +308,8 @@ void *thread_socket_accept(void) {
             return NULL;
         } else {
             printf("[  OK  ]: New connected socket created\n");
+            /* On coupe tout les actionneurs par securite */
+            relay_disable_all();
 
             if (stop_rx_thread() != 0) {
                 accept_thread_run = 0;

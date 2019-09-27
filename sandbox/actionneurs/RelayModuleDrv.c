@@ -24,6 +24,17 @@ int relay_init() {
     return 0;
 }
 
+int relay_disable_all() {
+    int i;
+    
+    for (i = 0; i < RELAY_NB; i++) {
+        if (GPIOWrite(relays[i], STATE_LOW) != 0)
+            return -1;
+    }
+    
+    return 0;
+}
+
 int relay_set_state(int relay_number, int state) {
     if (GPIOWrite(relays[relay_number], state) != 0) {
         printf("[ERROR ]: error setting gpio state");
