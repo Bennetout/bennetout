@@ -1,6 +1,3 @@
-# Use ssh keys into ~/.ssh/
-eval "$(ssh-agent -s)"
-
 ssh pi@192.168.1.10
 
 # without password
