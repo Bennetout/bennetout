@@ -34,3 +34,12 @@ https://www.dexterindustries.com/howto/run-a-program-on-your-raspberry-pi-at-sta
 hotspot wifi + serveur web :
 https://raspbian-france.fr/creer-un-hotspot-wi-fi-en-moins-de-10-minutes-avec-la-raspberry-pi/
 
+# Lancer un script sur une clé USB automatiquement :
+cat /etc/udev/rules.d/01-update.rules
+KERNEL=="sd*", SUBSYSTEMS=="scsi", DRIVERS=="sd", SYMLINK+="flash",  RUN+="/home/pi/autorun-usb.sh"
+
+cat /home/pi/autorun-usb.sh
+#!/bin/bash
+cp /media/pi/*/bennetout-update.sh /home/pi/bennetout-update.sh
+chmod u+x /home/pi/bennetout-update.sh
+/home/pi/bennetout-update.sh
