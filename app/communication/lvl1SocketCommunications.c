@@ -192,16 +192,18 @@ void sendSensorsValues(void) {
     float porte_value = 0;
     float inclinoX_value = 0;
     float inclinoY_value = 0;
+    float tamis_value = 0;
     int length;
         
     fleche_value = rot_get_value(CAPTEUR_FLECHE);
     levage_value = rot_get_value(CAPTEUR_LEVAGE);
     porte_value = rot_get_value(CAPTEUR_PORTE);
+    tamis_value = rot_get_value(CAPTEUR_TAMIS);
     inclinoX_value = inclino_getX_value(INCLINO_X);
     inclinoY_value = inclino_getY_value(INCLINO_Y);
 
     //printf("fleche_value = %.1f\nlevage_value = %.1f\nporte_value = %.1f\nX = %.1f\nY = %.1f\n", fleche_value, levage_value, porte_value, inclinoX_value, inclinoY_value);
-    snprintf(to_send, 64, "/%.1f/%.1f/%.1f/%.1f/%.1f/", fleche_value, levage_value, porte_value, inclinoX_value, inclinoY_value);
+    snprintf(to_send, 64, "/%.1f/%.1f/%.1f/%.1f/%.1f/%.1f/", fleche_value, levage_value, porte_value, inclinoX_value, inclinoY_value, tamis_value);
     //printf("to send = %s\n", to_send);
     length = strlen(to_send);
 

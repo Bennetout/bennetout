@@ -3,6 +3,7 @@
 
 #include "actionneurs/RelayModuleDrv.h"
 
+// Actionneurs, carte relais
 #define PORTE_LEVEE     1
 #define PORTE_DESCENTE  2
 #define LEVAGE_LEVEE    3
@@ -12,12 +13,13 @@
 #define TAPIS_AVANCE    7
 #define TAPIS_RECULE    8
 
+// Capteurs, shield raspberry ADC
 #define CAPTEUR_PORTE   1
 #define CAPTEUR_LEVAGE  2
 #define CAPTEUR_FLECHE  3
 #define INCLINO_X       4
 #define INCLINO_Y       5
-#define MY_ADC_6        6
+#define CAPTEUR_TAMIS   6
 #define MY_ADC_7        7
 #define MY_ADC_8        8
 
