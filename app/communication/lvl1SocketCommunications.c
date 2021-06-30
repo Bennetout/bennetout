@@ -216,6 +216,6 @@ void sendSensorsValues(void) {
     
     toSend[0] = ID_SEND_SENSORS_VALUES;
     memcpy(&toSend[1], to_send, length);
-    
+
     socket_tx(toSend, length +1);
 }
