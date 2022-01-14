@@ -25,6 +25,8 @@ int main(int argc, char *argv[]) {
 	sigemptyset(&saio.sa_mask);
 	saio.sa_flags = 0;
 
+    printf("Started bennetout sever version %s\r\n", BENNETOUT_SERVER_VERSION);
+
 	/* For ctrl^C interruption */
 	sigaction(SIGINT, &saio, 0);
               

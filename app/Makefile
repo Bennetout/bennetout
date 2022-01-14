@@ -1,5 +1,5 @@
+ROOT_DIR=$(PWD)
 IP_RASPBERRY = 192.168.1.10
-
 PACKAGES = communication \
 	    actionneurs \
 	    capteurs/libiio \
@@ -16,7 +16,8 @@ OBJ = $(SRC:.c=.o)
 
 MAIN = main.c
 
-export CC = arm-linux-gnueabihf-gcc
+export CC=$(ROOT_DIR)/../tools/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc
+export SYSROOT=$(ROOT_DIR)/../tools/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/
 
 export CCFLAGS = -g
 export CCINCLUDE =
@@ -31,7 +32,7 @@ clean:
 	
 all: clean
 	for p in $(PACKAGES); do (cd $$p; $(MAKE) $@); done
-	$(CC) $(CCFLAGS) $(CCINCLUDE) $(OBJ) $(MAIN) -o $(EXEC) $(LDFLAGS)
+	$(CC) --sysroot=$(SYSROOT) $(CCFLAGS) $(CCINCLUDE) $(OBJ) $(MAIN) -o $(EXEC) $(LDFLAGS)
 	
 board:
 	sshpass -p "raspberry" scp $(EXEC) pi@$(IP_RASPBERRY):/home/pi

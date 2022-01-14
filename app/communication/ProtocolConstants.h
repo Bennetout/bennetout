@@ -32,11 +32,11 @@
 #define ID_GET_SENSORS_VALUES       0xE0
 #define ID_SEND_SENSORS_VALUES      0xE1
 #define ID_ACTION                   0xE2
-#define ID_SET_SENSOR_VALUE         0xE3
-#define ID_STOP_SET_SENSOR_VALUE    0xE4
-#define ID_SET_SENSOR_VALUE_FINISH  0xE5
 
 #define ID_USELESS                  0xD0
+
+#define ID_GET_VERSION              0xB0
+#define ID_SEND_VERSION             0xB1
 
 #define ARG_ACTION_1                0x00
 #define ARG_ACTION_2                0x01

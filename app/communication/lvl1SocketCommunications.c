@@ -24,6 +24,7 @@ void sendSensorsValues(void);
 void processSetSensorValue(int relayNbPlus, int relayNbMoins, int sensorNb, double sensorValueToBe, unsigned char *toSendOnFinish, int length);
 
 int ackReceived = 0;
+char to_send[64] = {'\0'};
 
 void messageFromLvl0(const unsigned char *data, unsigned int length) {
     
@@ -34,8 +35,6 @@ void messageFromLvl0(const unsigned char *data, unsigned int length) {
     unsigned char arg;
     unsigned char state;
     signed char value;
-    unsigned char toSendOnFinish[2];
-    toSendOnFinish[0] = ID_SET_SENSOR_VALUE_FINISH;
     int relayNbPlus, relayNbMoins, sensorNb;
      
     /*printf("%d-%d-%d %d:%d:%d ", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
@@ -52,6 +51,12 @@ void messageFromLvl0(const unsigned char *data, unsigned int length) {
 
      id = data[0];
      switch (id) {
+         case ID_GET_VERSION:
+            to_send[0] = ID_SEND_VERSION;
+            snprintf(&to_send[1], 3, "%s", BENNETOUT_SERVER_VERSION);
+            socket_tx(to_send, 3);
+            break;
+
          case ID_USELESS:
              printf("%s", data);
              break;
@@ -77,53 +82,6 @@ void messageFromLvl0(const unsigned char *data, unsigned int length) {
              }
              relay_set_state(arg, state);
              break;
-             
-         case ID_SET_SENSOR_VALUE:
-             if (length < 3) {
-                printf("[ERROR ]: empty arg for id ID_SET_SENSOR_VALUE");
-                return;
-             }
-             arg = data[1];
-             value = data[2];
-            printf("ID_SET_SENSOR_VALUE: arg = %d, value = %d\n", arg, value);
-
-             switch (arg) {
-                 case ARG_PORTE:
-                     relayNbPlus = PORTE_LEVEE;
-                     relayNbMoins = PORTE_DESCENTE;
-                     sensorNb = CAPTEUR_PORTE;
-                     break;
-                     
-                 case ARG_LEVAGE:
-                     relayNbPlus = LEVAGE_LEVEE;
-                     relayNbMoins = LEVAGE_DESCENTE;
-                     sensorNb = CAPTEUR_LEVAGE;
-                     break;
-                     
-                 case ARG_FLECHE:
-                     relayNbPlus = FLECHE_DROITE;
-                     relayNbMoins = FLECHE_GAUCHE;
-                     sensorNb = CAPTEUR_FLECHE;
-                     break;
-                     
-                 default:
-                    printf("[ERROR ]: wrong arg for id ID_SET_SENSOR_VALUE");
-                    return;
-            }
-            toSendOnFinish[1] = arg;
-            processSetSensorValue(relayNbPlus, relayNbMoins, sensorNb, value, toSendOnFinish, 2);
-            
-            break;
-             
-         case ID_STOP_SET_SENSOR_VALUE:
-             if (length < 2) {
-                printf("[ERROR ]: empty arg for id ID_STOP_SET_SENSOR_VALUE");
-                return;
-             }
-             arg = data[1];
-             
-             printf("ID_STOP_SET_SENSOR_VALUE: arg = %d\n", arg);
-             break;
      }
 }
 
@@ -145,47 +103,11 @@ int com_stop_server(void) {
     socket_server_stop();
 }
 
-// TODO: remove, test only
-void processSetSensorValue(int relayNbPlus, int relayNbMoins, int sensorNb, double sensorValueToBe, unsigned char *toSendOnFinish, int length) {
-    
-    bool notFinish = true;
-    double sensorValue;
-    double sensorValueToBeMin = sensorValueToBe - 3;
-    double sensorValueToBeMax = sensorValueToBe + 3;
-    printf("sensorValueToBe=%.1f +- 3\n", sensorValueToBe);
-    
-    while (notFinish) {
-        if (sensorNb == INCLINO_X)
-            sensorValue = inclino_getX_value(INCLINO_X);
-        else if (sensorNb == INCLINO_Y)
-          sensorValue = inclino_getY_value(INCLINO_Y);
-        else
-            sensorValue = rot_get_value(sensorNb);
-        
-        if (sensorValue < sensorValueToBeMin) {
-            relay_set_state(relayNbMoins, STATE_LOW);
-            relay_set_state(relayNbPlus, STATE_HIGH);
-        } else if (sensorValue > sensorValueToBeMax) {
-            relay_set_state(relayNbPlus, STATE_LOW);
-            relay_set_state(relayNbMoins, STATE_HIGH);
-        } else {
-            relay_set_state(relayNbPlus, STATE_LOW);
-            relay_set_state(relayNbMoins, STATE_LOW);
-            notFinish = false;
-        }
-        printf("sensorValue=%.1f\n", sensorValue);
-
-        sleep(1);
-    }
-    socket_tx(toSendOnFinish, length);
-}
-
 void sendSensorsValues(void) {
     
     //char randomvalues[MAX_RETURN_BUF_SIZE];
     //int length = getRandomValues(randomvalues);
     //int length = getRandomValuesLogic(randomvalues);
-    char to_send[64] = {'\0'};
 
     float fleche_value = 0;
     float levage_value = 0;

@@ -1,6 +1,7 @@
 #include "RelayModuleDrv.h"
 
-char relays[RELAY_NB] = {RELAY_1, RELAY_2, RELAY_3, RELAY_4, RELAY_5, RELAY_6, RELAY_7, RELAY_8};
+char relays[RELAY_NB] = {RELAY_1, RELAY_2, RELAY_3, RELAY_4, RELAY_5, RELAY_6, RELAY_7, RELAY_8,
+                            RELAY_9, RELAY_10, RELAY_11, RELAY_12, RELAY_13, RELAY_14, RELAY_15, RELAY_16};
 
 int relay_init() {
     int i;
